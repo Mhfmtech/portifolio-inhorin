@@ -16,34 +16,7 @@
     </v-container>
 
     <!-- Projects Section -->
-    <v-container id="projetos" class="py-16 bg-grey-lighten-4">
-      <h2 class="text-h3 text-center mb-12">Projetos Recentes</h2>
-      <v-row>
-        <v-col
-          v-for="n in 3"
-          :key="n"
-          cols="12"
-          md="4"
-        >
-          <v-card>
-            <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200"
-              cover
-            ></v-img>
-            <v-card-title>Projeto {{ n }}</v-card-title>
-            <v-card-text>
-              Descrição do projeto e tecnologias utilizadas.
-            </v-card-text>
-            <v-card-actions>
-              <v-btn color="primary" variant="text">
-                Ver mais
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <ProjetosRecentes />
 
     <!-- Contact Section -->
     <v-container id="contato" class="py-16">
@@ -85,6 +58,7 @@
 
 <script setup>
 import Banner from '~/components/Banner.vue'
+import ProjetosRecentes from '~/components/ProjetosRecentes.vue'
 
 definePageMeta({
   title: 'Início'
