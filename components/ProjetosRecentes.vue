@@ -147,6 +147,8 @@ const imagensAv = import.meta.glob('~/assets/av/*.mp4', { eager: true })
 // Importando vídeos específicos
 import videoCordiuais from '~/assets/av/Video fim de ano Cordiuais.mp4'
 import videoNmall from '~/assets/av/VideoNmall.mp4'
+import videoFlipCards from '~/assets/av/flipCards.mp4'
+import videoFlipCards1 from '~/assets/av/flipcards1.mp4'
 
 const projetos = computed(() => {
   const projetosArray = []
@@ -173,8 +175,9 @@ const projetos = computed(() => {
 
   // Adicionando projetos de design
   Object.entries(imagensDesign).forEach(([path, module]) => {
+    const nomeArquivo = path.split('/').pop().replace(/\.[^/.]+$/, '')
     projetosArray.push({
-      titulo: 'Projeto de Design',
+      titulo: `Design ${nomeArquivo}`,
       descricao: 'Design gráfico e interfaces',
       imagem: module.default,
       categoria: 'design'
@@ -195,6 +198,22 @@ const projetos = computed(() => {
       titulo: 'VideoNmall',
       descricao: 'Produção de conteúdo audiovisual',
       imagem: videoNmall,
+      categoria: 'av',
+      isVideo: true,
+      isLocal: true
+    },
+    {
+      titulo: 'Flip Cards',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: videoFlipCards,
+      categoria: 'av',
+      isVideo: true,
+      isLocal: true
+    },
+    {
+      titulo: 'Flip Cards 1',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: videoFlipCards1,
       categoria: 'av',
       isVideo: true,
       isLocal: true
