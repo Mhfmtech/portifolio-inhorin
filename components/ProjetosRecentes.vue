@@ -34,12 +34,27 @@
               cover 
               height="200"
             ></v-img>
-            <video 
-              v-else
-              :src="projeto.imagem"
-              controls
-              class="projeto-video"
-            ></video>
+            <div v-else class="video-thumbnail">
+              <video 
+                v-if="projeto.isLocal"
+                :src="projeto.imagem"
+                class="projeto-video"
+                muted
+                loop
+                preload="metadata"
+              ></video>
+              <iframe
+                v-else-if="projeto.isYoutube"
+                :src="projeto.imagem"
+                class="projeto-video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <div class="play-overlay">
+                <v-icon size="48" color="white">mdi-play-circle</v-icon>
+              </div>
+            </div>
           </div>
           <div class="projeto-info">
             <h3 class="text-h5 mb-2">{{ projeto.titulo }}</h3>
@@ -68,22 +83,32 @@
       transition="dialog-bottom-transition"
     >
       <v-card class="modal-card">
-        <v-toolbar dark color="primary">
+        <v-toolbar class="modal-toolbar">
           <v-btn icon dark @click="fecharModal">
             <v-icon>mdi-close</v-icon>
           </v-btn>
-          <v-toolbar-title>{{ projetoSelecionado?.titulo }}</v-toolbar-title>
+          <v-toolbar-title class="modal-title">{{ projetoSelecionado?.titulo }}</v-toolbar-title>
           <v-spacer></v-spacer>
         </v-toolbar>
 
         <div class="modal-content">
           <div v-if="projetoSelecionado?.isVideo" class="video-container">
             <video
+              v-if="projetoSelecionado?.isLocal"
+              ref="videoPlayer"
               :src="projetoSelecionado?.imagem"
               controls
               autoplay
               class="modal-video"
             ></video>
+            <iframe
+              v-else-if="projetoSelecionado?.isYoutube"
+              :src="projetoSelecionado?.imagem"
+              class="modal-video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
           <v-img
             v-else
@@ -117,7 +142,11 @@ const categorias = [
 const imagensMarca = import.meta.glob('~/assets/marca/*.{jpg,jpeg,png}', { eager: true })
 const imagensWeb = import.meta.glob('~/assets/web/*.{jpg,jpeg,png}', { eager: true })
 const imagensDesign = import.meta.glob('~/assets/Design/*.{jpg,jpeg,png}', { eager: true })
-const imagensAv = import.meta.glob('~/assets/av/*.{mp4}', { eager: true })
+const imagensAv = import.meta.glob('~/assets/av/*.mp4', { eager: true })
+
+// Importando vídeos específicos
+import videoCordiuais from '~/assets/av/Video fim de ano Cordiuais.mp4'
+import videoNmall from '~/assets/av/VideoNmall.mp4'
 
 const projetos = computed(() => {
   const projetosArray = []
@@ -153,15 +182,58 @@ const projetos = computed(() => {
   })
 
   // Adicionando projetos de áudio visual
-  Object.entries(imagensAv).forEach(([path, module]) => {
-    projetosArray.push({
-      titulo: 'Projeto Áudio Visual',
-      descricao: 'Produção de conteúdo audiovisual',
-      imagem: module.default,
+  const videosAv = [
+    {
+      titulo: 'Video fim de ano Cordiuais',
+      descricao: 'Produção de vídeo institucional',
+      imagem: videoCordiuais,
       categoria: 'av',
-      isVideo: true
-    })
-  })
+      isVideo: true,
+      isLocal: true
+    },
+    {
+      titulo: 'VideoNmall',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: videoNmall,
+      categoria: 'av',
+      isVideo: true,
+      isLocal: true
+    },
+    {
+      titulo: 'Vídeo Institucional 1',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: 'https://www.youtube.com/embed/NCLdr0lVz_U',
+      categoria: 'av',
+      isVideo: true,
+      isYoutube: true
+    },
+    {
+      titulo: 'Vídeo Institucional 2',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: 'https://www.youtube.com/embed/o_WIohZABiA',
+      categoria: 'av',
+      isVideo: true,
+      isYoutube: true
+    },
+    {
+      titulo: 'Vídeo Institucional 3',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: 'https://www.youtube.com/embed/HxcPzYBERec',
+      categoria: 'av',
+      isVideo: true,
+      isYoutube: true
+    },
+    {
+      titulo: 'Vídeo Institucional 4',
+      descricao: 'Produção de conteúdo audiovisual',
+      imagem: 'https://www.youtube.com/embed/quJfvNZX6-8',
+      categoria: 'av',
+      isVideo: true,
+      isYoutube: true
+    }
+  ]
+
+  projetosArray.push(...videosAv)
 
   return projetosArray
 })
@@ -321,15 +393,18 @@ const fecharModal = () => {
 
 .video-container {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 64px);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: black;
 }
 
 .modal-video {
-  max-height: 90vh;
-  max-width: 90vw;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
 }
 
 .projeto-card {
@@ -401,5 +476,81 @@ const fecharModal = () => {
 
 :deep(.v-btn--variant-outlined:hover) {
   border-width: 2px !important;
+}
+
+.modal-toolbar {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white !important;
+}
+
+.modal-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: white;
+}
+
+:deep(.v-toolbar__content) {
+  padding: 1rem 2rem !important;
+}
+
+:deep(.v-btn--icon) {
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+:deep(.v-btn--icon:hover) {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-thumbnail video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.projeto-card:hover .play-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.projeto-card:hover .play-overlay .v-icon {
+  transform: scale(1.1);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.projeto-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style> 
