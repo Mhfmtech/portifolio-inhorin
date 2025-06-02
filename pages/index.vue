@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Banner />
+    <Banner id="inicio" />
     <!-- About Section -->
     <v-container id="sobre" class="py-16">
       <v-row justify="center">

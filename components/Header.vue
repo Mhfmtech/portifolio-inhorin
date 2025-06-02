@@ -10,31 +10,69 @@
           <img :src="logo2" alt="Logo" class="header-logo" />
         </NuxtLink>
       </div>
-      <nav class="nav-menu">
+      
+      <!-- Menu Desktop -->
+      <nav class="nav-menu d-none d-md-flex">
         <v-btn
           v-for="item in menuItems"
           :key="item.to"
-          :to="item.to"
           variant="text"
-          class="nav-btn"
           color="white"
+          @click="scrollToSection(item.to)"
         >
           {{ item.text }}
         </v-btn>
       </nav>
+
+      <!-- Botão Menu Mobile -->
+      <v-app-bar-nav-icon
+        class="d-md-none"
+        color="white"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
     </div>
   </v-app-bar>
+
+  <!-- Drawer Menu Mobile -->
+  <v-navigation-drawer
+    v-model="drawer"
+    temporary
+    location="right"
+    theme="light"
+    width="250"
+  >
+    <v-list density="compact">
+      <v-list-item
+        v-for="item in menuItems"
+        :key="item.to"
+        :value="item.text"
+        @click="scrollToSection(item.to); drawer = false"
+      >
+        <v-list-item-title>{{ item.text }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import logo2 from '~/assets/logo2.png'
 
+const drawer = ref(false)
+
 const menuItems = [
-  { text: 'Início', to: '/' },
-  { text: 'Sobre', to: '/sobre' },
-  { text: 'Projetos', to: '/projetos' },
-  { text: 'Contato', to: '/contato' }
+  { text: 'Início', to: '#inicio' },
+  { text: 'Sobre', to: '#sobre' },
+  { text: 'Projetos', to: '#projetos' },
+  { text: 'Contato', to: '#contato' }
 ]
+
+const scrollToSection = (sectionId) => {
+  const element = document.querySelector(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped>
@@ -143,5 +181,16 @@ const menuItems = [
 
 :deep(.v-btn--variant-elevated:hover) {
   background: rgba(100, 200, 255, 0.3) !important;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 960px) {
+  .header-logo {
+    height: 100px;
+  }
+  
+  .header-content {
+    padding: 0.5rem 1rem;
+  }
 }
 </style> 
