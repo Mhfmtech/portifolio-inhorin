@@ -1,7 +1,7 @@
 <template>
   <section class="projetos-recentes" id="projetos">
     <div class="container">
-      <h2 class="text-h3 mb-8 elegant-title">Projetos Recentes</h2>
+      <h2 class="text-h3 mb-8 elegant-title">Projetos</h2>
       
       <!-- Tabs de Filtro -->
       <div class="filtro-container mb-8">

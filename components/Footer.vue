@@ -3,9 +3,9 @@
     <div class="footer-content">
       <div class="footer-section">
         <div class="logo">
-          <span class="text-h6 font-weight-bold">Mauro</span>
+          <img :src="logo2" alt="Logo Mauro" />
         </div>
-        <p class="description">Desenvolvedor Full Stack & UI/UX Designer</p>
+        <p class="description">Martech | Marketing | Technologia | Design | Web</p>
       </div>
       
       <div class="footer-section social-links">
@@ -31,11 +31,12 @@
 </template>
 
 <script setup>
+import logo2 from '~/assets/logo2.png'
+
 const socialLinks = [
-  { icon: 'mdi-github', link: 'https://github.com/seu-usuario' },
-  { icon: 'mdi-linkedin', link: 'https://linkedin.com/in/seu-usuario' },
-  { icon: 'mdi-instagram', link: 'https://instagram.com/seu-usuario' },
-  { icon: 'mdi-twitter', link: 'https://twitter.com/seu-usuario' }
+  { icon: 'mdi-github', link: 'https://github.com/Mhfmtech' },
+  { icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/' },
+  { icon: 'mdi-instagram', link: 'https://www.instagram.com/mauro__henrique/' }
 ]
 </script>
 
@@ -77,17 +78,23 @@ const socialLinks = [
   text-align: center;
 }
 
-.logo span {
-  color: white;
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.02em;
-  font-size: 1.25rem;
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .description {
   margin-top: 0.5rem;
-  font-size: 0.875rem;
-  opacity: 0.8;
+  font-size: 1rem;
+  opacity: 0.9;
+  color: white;
 }
 
 .social-links {
