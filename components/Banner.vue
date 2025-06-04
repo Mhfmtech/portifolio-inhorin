@@ -23,7 +23,7 @@
           class="mr-4 elegant-btn"
           href="#projetos"
         >
-          Ver Projetos
+          Ver Projetos 
         </v-btn>
         <v-btn
           variant="outlined"
