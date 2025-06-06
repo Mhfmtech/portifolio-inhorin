@@ -3,7 +3,7 @@
     <div class="footer-content">
       <div class="footer-section">
         <div class="logo">
-          <img :src="logo2" alt="Logo Mauro" />
+          <img :src="logo2" alt="Logo Mauro" loading="lazy" />
         </div>
         <p class="description">Martech | Marketing | Tecnologia | Design | Web</p>
       </div>

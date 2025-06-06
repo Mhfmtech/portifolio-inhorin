@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mauro Henrique",
+  "url": "https://www.mauroh.com.br",
+  "image": "https://www.mauroh.com.br/mauro.jpg",
+  "sameAs": [
+    "https://github.com/Mhfmtech",
+    "https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/",
+    "https://www.instagram.com/mauro__henrique/"
+  ],
+  "jobTitle": "Desenvolvedor Front-end & Designer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelancer"
+  },
+  "description": "Desenvolvedor Front-end e Designer com experiência em Vue.js, WordPress, Webflow e design de interfaces. Especialista em criar soluções digitais que combinam tecnologia, design e estratégia.",
+  "knowsAbout": [
+    "Vue.js",
+    "WordPress",
+    "Webflow",
+    "UI/UX Design",
+    "Marketing Digital",
+    "Front-end Development"
+  ]
+} 

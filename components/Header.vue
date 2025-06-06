@@ -7,7 +7,7 @@
     <div class="header-content">
       <div class="logo">
         <NuxtLink to="/" class="text-decoration-none">
-          <img :src="logo2" alt="Logo" class="header-logo" />
+          <img :src="logo2" alt="Logo" class="header-logo" loading="lazy" />
         </NuxtLink>
       </div>
       
