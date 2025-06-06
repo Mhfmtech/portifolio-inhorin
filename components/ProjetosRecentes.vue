@@ -31,8 +31,10 @@
             <v-img 
               v-if="!projeto.isVideo"
               :src="projeto.imagem" 
+              :lazy-src="projeto.imagem"
               cover 
               height="200"
+              loading="lazy"
             ></v-img>
             <div v-else class="video-thumbnail">
               <video 
@@ -56,10 +58,9 @@
               </div>
             </div>
           </div>
-          <div class="projeto-info">
-            <h3 class="text-h5 mb-2">{{ projeto.titulo }}</h3>
-            <p class="mb-4">{{ projeto.descricao }}</p>
-          </div>
+          <!-- <div class="projeto-info">
+            
+          </div> -->
         </div>
       </div>
 
@@ -135,7 +136,7 @@ const categorias = [
   { id: 'marca', nome: 'Marca' },
   { id: 'web', nome: 'Web' },
   { id: 'design', nome: 'Design' },
-  { id: 'av', nome: 'Áudio Visual' }
+  { id: 'av', nome: 'Audiovisual' }
 ]
 
 // Importando imagens das pastas
