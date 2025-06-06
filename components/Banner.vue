@@ -14,7 +14,7 @@
       <h1 class="text-h2 font-weight-bold mb-4 elegant-title">Mauro</h1>
       <div class="text-h4 mb-8 elegant-subtitle">
         <span class="block">Martech</span> |
-        <span class="block mt-2">Marketing | Technologia | Design | Web</span>
+        <span class="block mt-2">Marketing | Tecnologia | Design | Web</span>
       </div>
       <div class="d-flex justify-center gap-4">
         <v-btn
@@ -23,7 +23,7 @@
           class="mr-4 elegant-btn"
           href="#projetos"
         >
-          Ver Projetos 
+          Ver Projetos  
         </v-btn>
         <v-btn
           variant="outlined"

@@ -5,7 +5,7 @@
         <div class="logo">
           <img :src="logo2" alt="Logo Mauro" />
         </div>
-        <p class="description">Martech | Marketing | Technologia | Design | Web</p>
+        <p class="description">Martech | Marketing | Tecnologia | Design | Web</p>
       </div>
       
       <div class="footer-section social-links">
