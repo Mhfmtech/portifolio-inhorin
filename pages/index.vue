@@ -7,41 +7,84 @@
         <v-col cols="12" md="6">
           <h2 class="text-h3 text-center text-md-left mb-8">Sobre Mim</h2>
           <p class="text-body-1 text-center text-md-left mb-4">
-            Como profissional graduado em Propaganda e Marketing pela Universidade Paulista (UNIP-SJC), trago uma visão estratégica e uma paixão pela tecnologia para o universo do marketing digital. Minha jornada profissional se consolidou na intersecção entre a prática e planejamento estratégico de marketing, gerenciamento de projetos web e liderança de equipes.
+            Graduado em Propaganda e Marketing pela Universidade Paulista UNIP, trago uma visão
+            estratégica e uma paixão pela tecnologia para o universo do marketing. Minha jornada profissional se
+            consolidou na intersecção entre a prática e planejamento, gerenciamento de projetos
+            web e liderança de equipes.
           </p>
           <p class="text-body-1 text-center text-md-left mb-4">
-            Sou proficiente em desenvolvimento front-end, com expertise em HTML, CSS, Vue.js e Ionic, o que me permite não apenas idealizar, mas também construir e otimizar soluções digitais. Minhas habilidades se estendem ao WordPress, design de Experiência do Usuário (UX) e à prototipagem e construção de Interfaces de Usuário (UI), com domínio de ferramentas como Figma e Webflow. Além disso, possuo vasto conhecimento em análise de dados e otimização, utilizando Hotjar e Google Analytics para insights acionáveis. Tive a oportunidade de gerenciar projetos de ponta a ponta, desde o desenvolvimento e implantação até a documentação pré e pós-lançamento, sempre incorporando as melhores práticas de branding, marketing e design.
+            Sou proficiente em desenvolvimento front-end, com expertise em HTML, CSS, Vue.js e Ionic, o que me permite
+            não apenas idealizar, mas também construir e otimizar soluções digitais. Minhas habilidades se estendem a CMS's
+            como WordPress, Webflow, design de Experiência do Usuário (UX) e à prototipagem e construção de Interfaces de Usuário
+            (UI), com domínio de ferramentas como Figma, Miro entre outras.
           </p>
           <p class="text-body-1 text-center text-md-left">
-            Impulsionado pela busca por resultados e por uma abordagem inovadora e colaborativa, estou sempre atento às tendências e melhores práticas do cenário atual do marketing. Busco desafios que demandem criatividade, pensamento estratégico e habilidades técnicas para gerar impacto e valor.
+            Impulsionado pela busca por resultados e por uma abordagem inovadora e colaborativa, estou sempre atento às
+            tendências e melhores práticas do cenário atual do marketing. Busco desafios que demandem criatividade,
+            pensamento estratégico e habilidades técnicas para gerar impacto e valor.
           </p>
         </v-col>
         <v-col cols="12" md="4">
           <div class="image-container">
-            <v-img
-              :src="mauroImage"
-              alt="Mauro"
-              class="about-image"
-            ></v-img>
+            <v-img :src="mauroImage" alt="Mauro" class="about-image"></v-img>
           </div>
         </v-col>
       </v-row>
 
+      <v-row class="mt-16" justify="center" align="center">
+        <v-col cols="12" md="4" class="d-flex justify-center align-center">
+          <div class="square-animation"></div>
+
+        </v-col>
+        <v-col cols="12" md="6">
+          <!-- <h2 class="text-h3 text-center text-md-left mb-8">Sobre Mim</h2> -->
+          <p class="text-body-1 text-center text-md-left mb-4">
+            Comecei minha trajetória profissional ainda na indústria, mas aos 20 anos aceitei um desafio que mudaria
+            completamente meu caminho: <b>mergulhar no universo do desenvolvimento front-end. Foi ali que despertei meu
+              interesse por tecnologia e comecei a estudar programação, atuando como desenvolvedor júnior em projetos
+              variados entre 2015 e 2017.</b>
+          </p>
+
+        </v-col>
+
+
+
+        <v-col cols="12" md="6">
+          <!-- <h2 class="text-h3 text-center text-md-left mb-8">Sobre Mim</h2> -->
+          <p class="text-body-1 text-center text-md-left mb-4 mt-16">
+            Após me formar com uma base sólida em comunicação, design, audiovisual e web, retomei o foco em tecnologia
+            atuando como web designer e front-end em uma consultoria de marketing. Desenvolvi sites e sistemas para
+            diversos clientes, lidando com integrações de CRM, CMSs como WordPress, Directus e Strapi, além de
+            participar do planejamento técnico e da documentação das soluções. Fui promovido a Tech Lead, liderando um
+            time de desenvolvedores com foco em entregas, sprints e KPIs.
+<br> <br>
+            Mais tarde, assumi uma posição no corporativo como profissional de Martech, gerenciando sites e plataformas
+            web, coordenando fornecedores e garantindo a eficiência das implementações. Destaque para a refatoração do
+            site da GS1 Brasil, onde liderei a migração de SharePoint para uma arquitetura moderna com Strapi e Next.js,
+            integrando área logada, CRM, pagamentos e RPAs.
+            <br>
+            Hoje, atuo na intersecção entre tecnologia, Marketing/design e estratégia, com domínio de ferramentas como Vue.js,
+            Ionic, WordPress, Webflow, Google Analytics e Hotjar. No audiovisual, utilizo Premiere Pro, DaVinci, Filmora
+            e Photoshop. Acredito que bons produtos digitais nascem do equilíbrio entre pessoas, dados, processos e
+            tecnologia.
+          </p>
+        </v-col>
+
+        <v-col cols="12" md="4" class="d-flex justify-center align-center">
+          <div class="circle-animation"></div>
+
+        </v-col>
+
+      </v-row>
+
+      <v-row class="mt-16" justify="center" align="center">
+        <v-col cols="12" md="12">
+
+        </v-col>
+      </v-row>
+
       <!-- Timeline Section -->
-      <div class="timeline-container mt-16">
-        <h2 class="text-h3 text-center mb-12">Minha Jornada</h2>
-        <div class="timeline-item" v-for="(item, index) in timelineItems" :key="index">
-          <div class="timeline-content" :class="{ 'right': index % 2 === 0 }">
-            <div class="timeline-icon">
-              <i :class="item.icon"></i>
-            </div>
-            <div class="timeline-text">
-              <h3>{{ item.title }}</h3>
-              <p>{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Skills Section -->
       <div class="skills-container mt-16">
@@ -71,10 +114,12 @@
           <v-btn icon size="large" href="https://github.com/Mhfmtech" target="_blank" class="contact-icon-btn">
             <v-icon>mdi-github</v-icon>
           </v-btn>
-          <v-btn icon size="large" href="https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/" target="_blank" class="contact-icon-btn">
+          <v-btn icon size="large" href="https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/"
+            target="_blank" class="contact-icon-btn">
             <v-icon>mdi-linkedin</v-icon>
           </v-btn>
-          <v-btn icon size="large" href="https://www.instagram.com/mauro__henrique/" target="_blank" class="contact-icon-btn">
+          <v-btn icon size="large" href="https://www.instagram.com/mauro__henrique/" target="_blank"
+            class="contact-icon-btn">
             <v-icon>mdi-instagram</v-icon>
           </v-btn>
           <v-btn icon size="large" href="https://wa.me/5512982833941" target="_blank" class="contact-icon-btn">
@@ -90,39 +135,6 @@
 import Banner from '~/components/Banner.vue'
 import ProjetosRecentes from '~/components/ProjetosRecentes.vue'
 import mauroImage from '~/assets/mauro.jpg'
-
-const timelineItems = [
-  {
-    title: 'Início na Indústria',
-    description: 'Comecei minha trajetória profissional ainda na indústria, mas aos 20 anos aceitei um desafio que mudaria completamente meu caminho: mergulhar no universo do desenvolvimento front-end.',
-    icon: 'fas fa-industry'
-  },
-  {
-    title: 'Formação em Marketing',
-    description: 'Iniciei minha formação em Propaganda e Marketing e logo consegui um estágio em uma empresa especializada na venda de licenças de software e equipamentos de hardware.',
-    icon: 'fas fa-graduation-cap'
-  },
-  {
-    title: 'Coordenação Digital',
-    description: 'Fui efetivado e assumi a coordenação das frentes digitais das duas empresas, organizando cronogramas de conteúdo, atualizações de sites e relatórios de desempenho.',
-    icon: 'fas fa-tasks'
-  },
-  {
-    title: 'Rebranding Cordial',
-    description: 'Uma das minhas entregas mais marcantes foi o rebranding da Cordial Condomínios, criando o novo logo da marca e sua identidade visual completa.',
-    icon: 'fas fa-paint-brush'
-  },
-  {
-    title: 'Tech Lead',
-    description: 'Fui promovido a Tech Lead e gerenciei um time com cerca de cinco desenvolvedores, lidando com planejamento de sprints, SCRUM, KPIs e cronogramas.',
-    icon: 'fas fa-code-branch'
-  },
-  {
-    title: 'Martech',
-    description: 'Hoje atuo como profissional de Martech, sendo responsável por gerenciar múltiplos sites e plataformas web, coordenando fornecedores de tecnologia.',
-    icon: 'fas fa-chart-line'
-  }
-];
 
 const skillCategories = [
   {
@@ -145,6 +157,154 @@ definePageMeta({
 </script>
 
 <style scoped>
+/* ********************************************* */
+
+.square-animation {
+  width: 150px;
+  /* Tamanho do quadrado */
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ff00c6, #ff7200);
+  /* Gradiente de fundo inicial */
+  box-shadow: 0 0 20px rgba(255, 0, 198, 0.7);
+  /* Sombra para dar profundidade */
+  animation: pulse-square 4s infinite ease-in-out, rotateColors-square 10s infinite linear;
+  /* Duas animações combinadas */
+}
+
+.square-animation::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(transparent 0%, rgba(255, 255, 255, 0.3) 10%, transparent 20%);
+  /* Efeito de brilho rotativo */
+  animation: spin-square 6s infinite linear;
+  /* Animação de rotação */
+  opacity: 0.8;
+}
+
+/* Animação de pulsação para o quadrado */
+@keyframes pulse-square {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 0, 198, 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 0, 198, 0.9), 0 0 60px rgba(255, 114, 0, 0.7);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 0, 198, 0.7);
+  }
+}
+
+/* Animação para rotacionar as cores do gradiente de fundo do quadrado */
+@keyframes rotateColors-square {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Animação de rotação do pseudo-elemento do quadrado */
+@keyframes spin-square {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ************************************************************** */
+
+.circle-animation {
+  width: 150px;
+  /* Tamanho do círculo */
+  height: 150px;
+  border-radius: 50%;
+  /* Transforma o div em um círculo */
+  position: relative;
+  /* Necessário para posicionar os pseudo-elementos */
+  overflow: hidden;
+  /* Garante que o gradiente não vaze */
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  /* Gradiente de fundo inicial */
+  box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+  /* Sombra para dar profundidade */
+  animation: pulse 4s infinite ease-in-out, rotateColors 10s infinite linear;
+  /* Duas animações combinadas */
+}
+
+/* Pseudo-elemento para criar um efeito de brilho ou "scan" */
+.circle-animation::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(transparent 0%, rgba(255, 255, 255, 0.3) 10%, transparent 20%);
+  /* Efeito de brilho rotativo */
+  animation: spin 6s infinite linear;
+  /* Animação de rotação */
+  opacity: 0.8;
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 198, 255, 0.9), 0 0 60px rgba(0, 114, 255, 0.7);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+  }
+}
+
+/* Animação para rotacionar as cores do gradiente de fundo */
+@keyframes rotateColors {
+  0% {
+    filter: hue-rotate(0deg);
+    /* Começa com a cor original */
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+    /* Gira 360 graus no espectro de cores */
+  }
+}
+
+/* Animação de rotação do pseudo-elemento */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* **** */
 section {
   scroll-margin-top: 80px;
 }
@@ -272,7 +432,13 @@ section {
 }
 
 .skill-category {
-  background: #ffffff;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.53);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -280,7 +446,7 @@ section {
 
 .skill-category h3 {
   margin: 0 0 1rem 0;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .skill-tags {
@@ -290,8 +456,8 @@ section {
 }
 
 .skill-tag {
-  background: #e8f0fe;
-  color: #4a90e2;
+  background: #cdd2d4;
+  color: #184972;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
@@ -312,4 +478,4 @@ section {
     right: auto !important;
   }
 }
-</style> 
+</style>
