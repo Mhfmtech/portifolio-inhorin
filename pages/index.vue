@@ -143,7 +143,7 @@ const skillCategories = [
   },
   {
     title: 'Design',
-    skills: ['Photoshop', 'Premiere Pro', 'DaVinci', 'Filmora', 'Branding', 'UI/UX']
+    skills: ['Photoshop', 'Premiere Pro', 'DaVinci', 'Filmora', 'Branding', 'UI/UX', 'Figma', 'Miro', 'Adobe XD']
   },
   {
     title: 'Análise',

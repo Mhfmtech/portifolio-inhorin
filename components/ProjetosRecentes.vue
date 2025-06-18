@@ -166,6 +166,8 @@ const projetos = computed(() => {
 
   // Adicionando projetos web
   Object.entries(imagensWeb).forEach(([path, module]) => {
+    // Filtra a imagem 'pagina 4 portifolio.jpg'
+    if (path.includes('pagina 4 portifolio.jpg')) return;
     projetosArray.push({
       titulo: 'Projeto Web',
       descricao: 'Desenvolvimento de website responsivo',
