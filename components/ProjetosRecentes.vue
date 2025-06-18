@@ -155,7 +155,19 @@ const projetos = computed(() => {
   const projetosArray = []
 
   // Adicionando projetos de marca
+  // Primeiro, adiciona 'pandora.jpg' se existir
+  const pandora = Object.entries(imagensMarca).find(([path]) => path.includes('pandora.jpg'));
+  if (pandora) {
+    projetosArray.push({
+      titulo: 'Projeto de Marca',
+      descricao: 'Desenvolvimento de identidade visual e branding',
+      imagem: pandora[1].default,
+      categoria: 'marca'
+    });
+  }
+  // Depois, adiciona os demais (exceto pandora.jpg para evitar duplicidade)
   Object.entries(imagensMarca).forEach(([path, module]) => {
+    if (path.includes('pandora.jpg')) return;
     projetosArray.push({
       titulo: 'Projeto de Marca',
       descricao: 'Desenvolvimento de identidade visual e branding',
@@ -165,9 +177,19 @@ const projetos = computed(() => {
   })
 
   // Adicionando projetos web
+  // Primeiro, adiciona 'pagina 9 portifolio.png' se existir
+  const pagina9 = Object.entries(imagensWeb).find(([path]) => path.includes('pagina 9 portifolio.png'));
+  if (pagina9) {
+    projetosArray.push({
+      titulo: 'Projeto Web',
+      descricao: 'Desenvolvimento de website responsivo',
+      imagem: pagina9[1].default,
+      categoria: 'web'
+    });
+  }
+  // Depois, adiciona os demais (exceto pagina 4 e pagina 9, para evitar duplicidade)
   Object.entries(imagensWeb).forEach(([path, module]) => {
-    // Filtra a imagem 'pagina 4 portifolio.jpg'
-    if (path.includes('pagina 4 portifolio.jpg')) return;
+    if (path.includes('pagina 4 portifolio.jpg') || path.includes('pagina 9 portifolio.png')) return;
     projetosArray.push({
       titulo: 'Projeto Web',
       descricao: 'Desenvolvimento de website responsivo',
