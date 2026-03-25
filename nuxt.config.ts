@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const GA_MEASUREMENT_ID = 'G-H67GSQC26Z'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
@@ -39,6 +41,21 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
       script: [
+        {
+          src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`,
+          async: true,
+          tagPriority: 'high'
+        },
+        {
+          key: 'ga-gtag-inline',
+          innerHTML: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');
+`.trim(),
+          tagPriority: 'high'
+        },
         {
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
