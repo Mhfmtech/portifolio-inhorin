@@ -16,22 +16,22 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Mauro Henrique - Desenvolvedor Front-end & Designer',
+      title: 'Mauro Henrique - Product Owner (PO) | UX + Front-end',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Desenvolvedor Front-end e Designer com experiência em Vue.js, WordPress, Webflow e design de interfaces. Especialista em criar soluções digitais que combinam tecnologia, design e estratégia.' },
-        { name: 'keywords', content: 'desenvolvedor front-end, designer, vue.js, wordpress, webflow, ui/ux, marketing digital' },
+        { name: 'description', content: 'Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável conectando experiência do usuário, negócio e tecnologia.' },
+        { name: 'keywords', content: 'product owner, PO, UX, UI, front-end, estratégia digital, discovery, priorização, métricas, produto' },
         { name: 'author', content: 'Mauro Henrique' },
         { name: 'robots', content: 'index, follow' },
-        { property: 'og:title', content: 'Mauro Henrique - Desenvolvedor Front-end & Designer' },
-        { property: 'og:description', content: 'Desenvolvedor Front-end e Designer com experiência em Vue.js, WordPress, Webflow e design de interfaces. Especialista em criar soluções digitais que combinam tecnologia, design e estratégia.' },
+        { property: 'og:title', content: 'Mauro Henrique - Product Owner (PO) | UX + Front-end' },
+        { property: 'og:description', content: 'Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://www.mauroh.com.br' },
         { property: 'og:image', content: 'https://www.mauroh.com.br/og-image.jpg' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Mauro Henrique - Desenvolvedor Front-end & Designer' },
-        { name: 'twitter:description', content: 'Desenvolvedor Front-end e Designer com experiência em Vue.js, WordPress, Webflow e design de interfaces.' },
+        { name: 'twitter:title', content: 'Mauro Henrique - Product Owner (PO) | UX + Front-end' },
+        { name: 'twitter:description', content: 'Product Owner orientado a UX e dados. Priorização, decisões e impacto mensurável.' },
         { name: 'twitter:image', content: 'https://www.mauroh.com.br/twitter-image.jpg' }
       ],
       link: [
@@ -52,19 +52,20 @@ export default defineNuxtConfig({
               "https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/",
               "https://www.instagram.com/mauro__henrique/"
             ],
-            "jobTitle": "Desenvolvedor Front-end & Designer",
+            "jobTitle": "Product Owner (PO) | UX + Front-end",
             "worksFor": {
               "@type": "Organization",
               "name": "Freelancer"
             },
-            "description": "Desenvolvedor Front-end e Designer com experiência em Vue.js, WordPress, Webflow e design de interfaces. Especialista em criar soluções digitais que combinam tecnologia, design e estratégia.",
+            "description": "Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável conectando experiência do usuário, negócio e tecnologia.",
             "knowsAbout": [
-              "Vue.js",
-              "WordPress",
-              "Webflow",
-              "UI/UX Design",
-              "Marketing Digital",
-              "Front-end Development"
+              "Product Ownership",
+              "UX Design",
+              "Prioritization",
+              "Experimentation",
+              "Metrics",
+              "Front-end Development",
+              "Strategy"
             ]
           })
         }

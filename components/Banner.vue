@@ -11,19 +11,19 @@
     </div>
     <canvas ref="canvasRef" class="canvas"></canvas>
     <div class="content">
-      <h1 class="text-h2 font-weight-bold mb-4 elegant-title">Mauro</h1>
+      <h1 class="text-h2 font-weight-bold mb-4 elegant-title">Product Owner</h1>
       <div class="text-h4 mb-8 elegant-subtitle">
-        <span class="block">Martech</span> |
-        <span class="block mt-2">Marketing | Tecnologia | Design | Web</span>
+        <span class="block">Mauro Henrique</span>
+        <span class="block mt-2">UX • Decisão • Impacto • Front-end</span>
       </div>
       <div class="d-flex justify-center gap-4">
         <v-btn
           color="primary"
           size="large"
           class="mr-4 elegant-btn"
-          href="#projetos"
+          href="#cases"
         >
-          Ver Projetos  
+          Ver Cases de Produto
         </v-btn>
         <v-btn
           variant="outlined"
@@ -42,7 +42,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import img1 from '~/assets/img1.png'
-import logo2 from '~/assets/logo2.png'
 
 const canvasRef = ref(null)
 const containerRef = ref(null)
@@ -50,6 +49,7 @@ let ctx = null
 let animationFrameId = null
 let particles = []
 let mouse = { x: 0, y: 0 }
+let reducedMotion = false
 
 class Particle {
   constructor(x, y) {
@@ -166,6 +166,9 @@ const handleResize = () => {
 }
 
 onMounted(() => {
+  reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reducedMotion) return
+
   initCanvas()
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('resize', handleResize)
@@ -173,6 +176,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  if (reducedMotion) return
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('resize', handleResize)
   if (animationFrameId) {
@@ -229,6 +233,20 @@ onUnmounted(() => {
   mix-blend-mode: screen;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .canvas {
+    display: none;
+  }
+
+  .elegant-title,
+  .elegant-subtitle,
+  .elegant-btn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .content {
   position: relative;
   z-index: 3;
@@ -256,6 +274,7 @@ onUnmounted(() => {
   letter-spacing: -0.02em;
   font-size: 4.5rem;
   background: linear-gradient(to right, #ffffff, #e0e0e0);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1);

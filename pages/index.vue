@@ -1,8 +1,71 @@
 <template>
   <div>
     <Banner id="inicio" />
+
+    <!-- Cases, Processo e Impacto (prioridade para recrutadores) -->
+    <CasesDeProduto />
+
+    <v-container id="processo" class="py-16">
+      <h2 class="text-h3 text-center mb-12">Processo de decisão</h2>
+      <v-row justify="center" class="mb-10">
+        <v-col cols="12" md="10">
+          <p class="text-body-1 text-center mb-0">
+            Eu estruturo decisões para reduzir risco, alinhar stakeholders e tornar a entrega previsível.
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col v-for="(etapa, idx) in processoEtapas" :key="idx" cols="12" md="6">
+          <v-card class="decision-card" variant="flat">
+            <div class="decision-index">0{{ idx + 1 }}</div>
+            <h3 class="decision-title">{{ etapa.titulo }}</h3>
+            <p class="decision-text">{{ etapa.texto }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container id="impacto" class="py-16">
+      <h2 class="text-h3 text-center mb-12">Impacto gerado</h2>
+      <v-row justify="center" class="mb-10">
+        <v-col cols="12" md="10">
+          <p class="text-body-1 text-center mb-0">
+            Eu avalio impacto por resultado (métrica + evidência) e por aprendizagem (o que muda no produto depois da entrega).
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col v-for="(item, idx) in impactoCards" :key="idx" cols="12" md="4">
+          <v-card class="impact-card" variant="outlined">
+            <h3 class="impact-title">{{ item.titulo }}</h3>
+            <p class="impact-text">{{ item.texto }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container id="diferencial" class="py-16">
+      <h2 class="text-h3 text-center mb-12">Diferencial híbrido</h2>
+      <v-row justify="center" class="mb-10">
+        <v-col cols="12" md="10">
+          <p class="text-body-1 text-center mb-0">
+            Meu background mistura PO/UX com front-end. Isso acelera decisões, reduz retrabalho e melhora a qualidade do que vai para produção.
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col v-for="(b, idx) in diferencialBullets" :key="idx" cols="12" md="4">
+          <v-card class="diff-card" variant="flat">
+            <p class="diff-bullet">{{ b }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
     <!-- About Section -->
-    <v-container id="sobre" class="py-16">
+    <v-container id="sobre-old" class="py-16 d-none">
       <v-row justify="center" align="center">
         <v-col cols="12" md="6">
           <h2 class="text-h3 text-center text-md-left mb-8">Sobre Mim</h2>
@@ -102,27 +165,64 @@
       </div>
     </v-container>
 
-    <!-- Projects Section -->
-    <ProjetosRecentes />
+    <!-- Projetos (removido no reposicionamento PO) -->
+
+    <!-- Sobre (na prática) -->
+    <v-container id="sobre" class="py-16">
+      <v-row justify="center" align="center">
+        <v-col cols="12" md="6">
+          <h2 class="text-h3 text-center text-md-left mb-8">Sobre (na prática)</h2>
+          <p class="text-body-1 text-center text-md-left mb-6">
+            Sou Product Owner com foco em UX e estratégia digital, com experiência em front-end e liderança técnica.
+          </p>
+          <p class="text-body-1 text-center text-md-left mb-6">
+            Minha atuação conecta discovery orientada a evidência, priorização com trade-offs e acompanhamento de impacto pós-entrega.
+          </p>
+          <p class="text-body-1 text-center text-md-left mb-0">
+            Busco oportunidades onde decisões de produto aceleram crescimento, reduzem fricção e melhoram a experiência do usuário.
+          </p>
+
+          <div class="marcos-grid">
+            <div v-for="(m, idx) in marcos" :key="idx" class="marco">
+              <div class="marco-title">{{ m.titulo }}</div>
+              <div class="marco-text">{{ m.texto }}</div>
+            </div>
+          </div>
+        </v-col>
+
+        <v-col cols="12" md="4">
+          <div class="image-container">
+            <v-img :src="mauroImage" alt="Mauro" class="about-image"></v-img>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
 
     <!-- Contact Section -->
     <v-container id="contato" class="py-16">
-      <h2 class="text-h3 text-center mb-12">Entre em Contato</h2>
+      <h2 class="text-h3 text-center mb-12">Vamos conversar?</h2>
+      <v-row justify="center" class="mb-8">
+        <v-col cols="12" md="8">
+          <p class="text-body-1 text-center mb-0">
+            Se você procura um PO que estrutura decisões com evidência, transforma UX em requisitos e acompanha impacto, vamos conversar.
+          </p>
+        </v-col>
+      </v-row>
       <v-row justify="center">
         <v-col cols="12" md="6" class="d-flex justify-center">
           <!-- Ícones das Redes Sociais e WhatsApp -->
-          <v-btn icon size="large" href="https://github.com/Mhfmtech" target="_blank" class="contact-icon-btn">
+          <v-btn icon size="large" href="https://github.com/Mhfmtech" target="_blank" class="contact-icon-btn" aria-label="GitHub">
             <v-icon>mdi-github</v-icon>
           </v-btn>
           <v-btn icon size="large" href="https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/"
-            target="_blank" class="contact-icon-btn">
+            target="_blank" class="contact-icon-btn" aria-label="LinkedIn">
             <v-icon>mdi-linkedin</v-icon>
           </v-btn>
           <v-btn icon size="large" href="https://www.instagram.com/mauro__henrique/" target="_blank"
-            class="contact-icon-btn">
+            class="contact-icon-btn" aria-label="Instagram">
             <v-icon>mdi-instagram</v-icon>
           </v-btn>
-          <v-btn icon size="large" href="https://wa.me/5512982833941" target="_blank" class="contact-icon-btn">
+          <v-btn icon size="large" href="https://wa.me/5512982833941" target="_blank" class="contact-icon-btn" aria-label="WhatsApp">
             <v-icon>mdi-whatsapp</v-icon>
           </v-btn>
         </v-col>
@@ -133,26 +233,64 @@
 
 <script setup>
 import Banner from '~/components/Banner.vue'
-import ProjetosRecentes from '~/components/ProjetosRecentes.vue'
+import CasesDeProduto from '~/components/CasesDeProduto.vue'
 import mauroImage from '~/assets/mauro.jpg'
 
-const skillCategories = [
+const processoEtapas = [
   {
-    title: 'Desenvolvimento',
-    skills: ['Vue.js', 'Ionic', 'WordPress', 'Webflow', 'HTML', 'CSS', 'JavaScript']
+    titulo: 'Discovery e alinhamento',
+    texto: 'Objetivo do produto, stakeholders, restrições e “o que precisa ser verdade” para a iniciativa avançar.'
   },
   {
-    title: 'Design',
-    skills: ['Photoshop', 'Premiere Pro', 'DaVinci', 'Filmora', 'Branding', 'UI/UX', 'Figma', 'Miro', 'Adobe XD']
+    titulo: 'Diagnóstico com evidências',
+    texto: 'Pesquisa, analytics e feedback para entender o problema real (e não só a superfície percebida).'
   },
   {
-    title: 'Análise',
-    skills: ['Google Analytics', 'Hotjar', 'CRM', 'KPIs', 'SCRUM']
+    titulo: 'Hipótese + métrica',
+    texto: 'Defino o que testar, como medir sucesso e quais sinais indicam aprendizado ou necessidade de pivot.'
+  },
+  {
+    titulo: 'Priorização e trade-offs',
+    texto: 'Organizo backlog considerando impacto, esforço, dependências e capacidade real do time.'
+  },
+  {
+    titulo: 'Entrega e aprendizado',
+    texto: 'Acompanho pós-release, valido resultados e transformo evidência em decisão para a próxima iteração.'
   }
-];
+]
+
+const impactoCards = [
+  {
+    titulo: 'Decisão com causa',
+    texto: 'Reduzo “achismo” com hipóteses claras, critérios de sucesso e acompanhamento de métricas.'
+  },
+  {
+    titulo: 'Produto com previsibilidade',
+    texto: 'Priorização e ritos de alinhamento que aumentam a cadência e diminuem retrabalho.'
+  },
+  {
+    titulo: 'Melhoria contínua',
+    texto: 'Aprendizado pós-entrega: ajuste de escopo, correção de fricções e evolução do valor para o usuário.'
+  }
+]
+
+const diferencialBullets = [
+  'Transformo UX em requisitos objetivos (com critérios de sucesso).',
+  'Antecipação técnica para evitar gargalos antes de investir tempo do time.',
+  'Fecho o ciclo: validação → decisão → execução → métrica.'
+]
+
+const marcos = [
+  { titulo: 'Discovery orientado a evidência', texto: 'Estruturo perguntas e hipóteses para orientar o que construir.' },
+  { titulo: 'Priorização com trade-offs', texto: 'Backlog alinhado a impacto, capacidade e dependências.' },
+  { titulo: 'Impacto pós-entrega', texto: 'Acompanhe resultado e aprendizado para iterar com segurança.' }
+]
+
+// Mantido apenas para evitar erros de renderização no bloco antigo de “Sobre” (agora oculto).
+const skillCategories = []
 
 definePageMeta({
-  title: 'Início'
+  title: 'Product Owner | Cases e Processo'
 })
 </script>
 
@@ -478,4 +616,89 @@ section {
     right: auto !important;
   }
 }
+
+/* PO: cards e escaneabilidade */
+.decision-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.decision-index {
+  color: #64c8ff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.decision-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.decision-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+}
+
+.impact-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px;
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.impact-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+
+.impact-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+}
+
+.diff-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.diff-bullet {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.marcos-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.marco {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.marco-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.marco-text {
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.55;
+}
+
 </style>

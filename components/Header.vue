@@ -62,8 +62,9 @@ const drawer = ref(false)
 
 const menuItems = [
   { text: 'Início', to: '#inicio' },
-  { text: 'Sobre', to: '#sobre' },
-  { text: 'Projetos', to: '#projetos' },
+  { text: 'Cases', to: '#cases' },
+  { text: 'Processo', to: '#processo' },
+  { text: 'Impacto', to: '#impacto' },
   { text: 'Contato', to: '#contato' }
 ]
 

@@ -9,11 +9,6 @@
 </template>
 
 <script setup>
-const menuItems = [
-  { title: 'Sobre', to: '/#sobre' },
-  { title: 'Projetos', to: '/#projetos' },
-  { title: 'Contato', to: '/#contato' }
-]
 </script>
 
 <style>

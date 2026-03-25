@@ -5,7 +5,7 @@
         <div class="logo">
           <img :src="logo2" alt="Logo Mauro" loading="lazy" />
         </div>
-        <p class="description">Martech | Marketing | Tecnologia | Design | Web</p>
+        <p class="description">Product Owner (PO) • UX • Produto • Front-end</p>
       </div>
       
       <div class="footer-section social-links">
