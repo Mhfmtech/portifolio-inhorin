@@ -13,10 +13,26 @@
     <div class="content">
       <p class="hero-role mb-2">Product Owner</p>
       <h1 class="hero-name mb-4">Mauro Henrique</h1>
-      <div class="text-h5 mb-8 elegant-subtitle">
-        <span class="block">UX • Decisão • Impacto • Front-end</span>
+      <div class="text-h5 mb-6 elegant-subtitle">
+        <span class="block hero-tagline">Product Owner que conecta negócio, UX e tecnologia para evoluir produtos digitais complexos</span>
       </div>
-      <div class="d-flex justify-center gap-4">
+
+      <ul class="hero-highlights" aria-label="Experiência profissional">
+        <li class="hero-highlight">
+          <span class="hero-highlight-mark" aria-hidden="true" />
+          <span>+3 anos atuando com produtos digitais</span>
+        </li>
+        <li class="hero-highlight">
+          <span class="hero-highlight-mark" aria-hidden="true" />
+          <span>PO na prática em ambiente corporativo</span>
+        </li>
+        <li class="hero-highlight">
+          <span class="hero-highlight-mark" aria-hidden="true" />
+          <span>Experiência com integrações, CMS e plataformas</span>
+        </li>
+      </ul>
+
+      <div class="d-flex justify-center gap-4 flex-wrap">
         <v-btn
           color="primary"
           size="large"
@@ -240,6 +256,9 @@ onUnmounted(() => {
 
   .elegant-title,
   .elegant-subtitle,
+  .hero-highlights,
+  .hero-role,
+  .hero-name,
   .elegant-btn {
     animation: none !important;
     opacity: 1 !important;
@@ -320,6 +339,69 @@ onUnmounted(() => {
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+.hero-tagline {
+  display: inline-block;
+  max-width: min(38rem, 92vw);
+  margin: 0 auto;
+}
+
+.hero-highlights {
+  list-style: none;
+  margin: 0 auto 1.75rem;
+  padding: 1rem 1.35rem;
+  max-width: min(52rem, 94vw);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.85rem 1.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  font-family: 'Outfit', sans-serif;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.58s forwards;
+}
+
+.hero-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  text-align: left;
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 17rem;
+}
+
+.hero-highlight-mark {
+  margin-top: 0.42em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.95), rgba(0, 180, 220, 0.75));
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.35);
+}
+
+@media (max-width: 600px) {
+  .hero-highlights {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .hero-highlight {
+    max-width: none;
+  }
+}
+
 .elegant-btn {
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
@@ -329,7 +411,7 @@ onUnmounted(() => {
   padding: 12px 32px;
   transition: all 0.3s ease;
   opacity: 0;
-  animation: fadeInUp 1s ease-out 0.6s forwards;
+  animation: fadeInUp 1s ease-out 0.72s forwards;
   position: relative;
   overflow: hidden;
 }
