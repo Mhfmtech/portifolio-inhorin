@@ -11,10 +11,10 @@
     </div>
     <canvas ref="canvasRef" class="canvas"></canvas>
     <div class="content">
-      <h1 class="text-h2 font-weight-bold mb-4 elegant-title">Product Owner</h1>
-      <div class="text-h4 mb-8 elegant-subtitle">
-        <span class="block">Mauro Henrique</span>
-        <span class="block mt-2">UX • Decisão • Impacto • Front-end</span>
+      <p class="hero-role mb-2">Product Owner</p>
+      <h1 class="hero-name mb-4">Mauro Henrique</h1>
+      <div class="text-h5 mb-8 elegant-subtitle">
+        <span class="block">UX • Decisão • Impacto • Front-end</span>
       </div>
       <div class="d-flex justify-center gap-4">
         <v-btn
@@ -284,13 +284,39 @@ onUnmounted(() => {
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
+.hero-role {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+  margin: 0;
+  animation: fadeInDown 1s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6vw, 3.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 1s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
 .elegant-subtitle {
   font-family: 'Outfit', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
   opacity: 0;
-  animation: fadeInUp 1s ease-out 0.3s forwards;
+  animation: fadeInUp 1s ease-out 0.45s forwards;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 

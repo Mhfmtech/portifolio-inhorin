@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="modal-section">
-                  <h3 class="modal-section-title">Decisão que eu liderei</h3>
+                  <h3 class="modal-section-title">Decisão</h3>
                   <p class="modal-section-text">{{ caseSelecionado?.decisao }}</p>
                 </div>
 
@@ -102,6 +102,24 @@
                 <div class="modal-section">
                   <h3 class="modal-section-title">Meu papel</h3>
                   <p class="modal-section-text">{{ caseSelecionado?.papel }}</p>
+                </div>
+
+                <div v-if="caseSelecionado?.processo?.length" class="modal-section">
+                  <h3 class="modal-section-title">Processo</h3>
+                  <ul class="impact-list">
+                    <li v-for="(it, idx) in caseSelecionado?.processo" :key="`processo-${idx}`">
+                      {{ it }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div v-if="caseSelecionado?.desafios?.length" class="modal-section">
+                  <h3 class="modal-section-title">Desafios</h3>
+                  <ul class="impact-list">
+                    <li v-for="(it, idx) in caseSelecionado?.desafios" :key="`desafio-${idx}`">
+                      {{ it }}
+                    </li>
+                  </ul>
                 </div>
 
                 <div class="modal-artifacts">
@@ -127,10 +145,9 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-import gs1Img from '~/assets/web/pagina 4 portifolio.jpg'
-import techLeadImg from '~/assets/web/pagina 8 portifolio.jpg'
-import martechImg from '~/assets/Design/flip.jpg'
-import rebrandingImg from '~/assets/marca/pandora.jpg'
+import gs1Img from '~/assets/cases/gs1-case.png'
+import brasilCodigoImg from '~/assets/cases/brasil-em-codigo-case.png'
+import mylegisImg from '~/assets/cases/mylegis-case.png'
 
 const categoriaAtiva = ref('todos')
 const modalAberto = ref(false)
@@ -152,75 +169,99 @@ const cases = [
     objetivo: 'Plataforma',
     imagem: gs1Img,
     problema:
-      'O ecossistema digital dependia de uma solução legada (SharePoint), com baixa agilidade para evoluir o site e integrar funcionalidades críticas (logado, dados e automações).',
+      'O ecossistema digital da GS1 Brasil dependia de uma solução legada (SharePoint), com baixa flexibilidade para evolução do produto e limitações na integração com sistemas críticos. Isso impactava a velocidade de evolução da plataforma, a experiência do usuário (principalmente na área logada) e a capacidade de integração com CRM e automações.',
     decisao:
-      'Liderei a migração para uma arquitetura moderna com Strapi + Next.js, definindo requisitos, priorizando integrações (área logada, CRM, pagamentos e RPAs) e criando um caminho de transição com foco em continuidade.',
+      'Conduzi junto a equipe de trabalho a migração da plataforma para uma arquitetura moderna baseada em CMS desacoplado e front-end performático. Definindo requisitos funcionais e técnicos, priorizei integrações críticas (área logada, CRM, pagamentos e RPAs), estruturei um plano de transição progressiva e garanti continuidade operacional durante a migração.',
     impactos: [
-      'Unificamos a base de conteúdo e aceleramos a evolução do produto digital.',
-      'Integrações ficaram mais consistentes, reduzindo retrabalho e dependência operacional.',
-      'A experiência do usuário logado ganhou estabilidade e previsibilidade.'
+      'Unificação da base de conteúdo.',
+      'Aceleração na evolução do produto digital.',
+      'Redução de retrabalho em integrações.',
+      'Maior consistência entre sistemas.',
+      'Melhoria na estabilidade da experiência do usuário logado.'
     ],
     papel:
-      'Product Owner na prática: discovery com stakeholders, definição de escopo, priorização de backlog, acompanhamento de entrega e validação pós-release.',
-    artefatos: ['PRD leve', 'Critérios de sucesso', 'Plano de transição', 'Rituais de alinhamento']
+      'Atuei como Product Owner com discovery junto a stakeholders de múltiplas áreas, definição e priorização de backlog, tradução de necessidades do negócio em requisitos técnicos, interface com fornecedores, acompanhamento de entregas/validações e alinhamento contínuo entre times técnicos e de negócio. No monitoramento e na geração de insights, utilizei Analytics e Hotjar; para construção e desenho de fluxo de jornada, utilizei Miro.',
+    processo: [
+      'Diagnóstico do cenário atual: identificação de limitações do ambiente legado e mapeamento de dependências técnicas.',
+      'Estruturação da solução: definição da arquitetura alvo e priorização das entregas com maior impacto.',
+      'Planejamento da transição: construção de roadmap evolutivo e definição das etapas de migração.',
+      'Execução e acompanhamento: gestão de backlog, validação contínua de entregas e ajustes conforme necessidades do negócio.'
+    ],
+    desafios: [
+      'Complexidade de integração com múltiplos sistemas.',
+      'Dependência de fornecedores externos.',
+      'Necessidade de manter a operação ativa durante a migração.',
+      'Alinhamento entre áreas com prioridades diferentes.'
+    ],
+    artefatos: ['Analytics e Hotjar (monitoramento/insights)', 'Miro (fluxo de jornada)', 'Requisitos funcionais e técnicos', 'Roadmap de migração', 'Backlog priorizado', 'Rituais de alinhamento']
   },
   {
-    id: 'tech-lead-sprint-kpis',
-    titulo: 'Tech Lead - Entrega com KPIs e cadência',
+    id: 'brasil-em-codigo-plataforma-evento',
+    titulo: 'Brasil em Código - Evolução da Plataforma de Evento',
     objetivoId: 'eficiencia',
     objetivo: 'Eficiência',
-    imagem: techLeadImg,
+    imagem: brasilCodigoImg,
     problema:
-      'O time dependia de priorização pouco previsível e decisões reativas, o que impactava cadência, qualidade e previsibilidade de entregas.',
+      'O site do Brasil em Código tinha layout defasado, estrutura engessada para edição e alta dependência de fornecedor externo, gerando lentidão na publicação, dificuldade para atualizar programação/inscrições e baixa autonomia do time interno.',
     decisao:
-      'Estruturei o ciclo de decisão com planejamento de sprints, acompanhamento de KPIs e priorização baseada em impacto, esforço e dependências.',
+      'Conduzi a evolução da plataforma com foco em autonomia e agilidade operacional: levantei dores do negócio, defini escopo da solução, homologuei novo fornecedor e validei propostas técnicas com aderência ao contexto do evento.',
     impactos: [
-      'Melhoramos a previsibilidade de entregas com backlog mais claro e negociado.',
-      'Reduzimos retrabalho ao alinhar critérios antes de iniciar o desenvolvimento.',
-      'Criamos um padrão de aprendizado: cada release gerava evidência para a próxima decisão.'
+      'Aumento significativo na autonomia do time interno.',
+      'Redução da dependência de fornecedores para atualizações.',
+      'Maior agilidade na publicação de conteúdos e atualizações do evento.',
+      'Melhor adaptação às necessidades dinâmicas do evento.',
+      'Evolução visual da plataforma com layout mais moderno e adaptável.'
     ],
     papel:
-      'Liderança de produto e execução: definição de prioridades, gestão de comunicação com stakeholders e acompanhamento de indicadores.',
-    artefatos: ['Roadmap prático', 'RICE/MoSCoW (equivalente)', 'KPIs', 'Sprints + review']
+      'Atuação como Product Owner na ponta: levantamento de dores, estruturação do escopo, captação/homologação de fornecedor, condução de alinhamentos técnico-estratégicos, validação de protótipos e coordenação do time interno de conteúdo até a entrega. Para monitoramento e geração de insights, utilizei Analytics e Hotjar; para construção e desenho de fluxo de jornada, utilizei Miro.',
+    processo: [
+      'Diagnóstico: identificação de gargalos operacionais e mapeamento de dependências com fornecedor atual.',
+      'Estruturação: definição de requisitos funcionais (FRP) e alinhamento de expectativas com stakeholders.',
+      'Seleção de fornecedor: prospecção, avaliação e homologação da melhor proposta.',
+      'Validação: análise de protótipos, ajustes e garantia de aderência ao negócio.',
+      'Execução: coordenação de conteúdo interno (texto/imagem), atualização e publicação do novo site.'
+    ],
+    desafios: [
+      'Captação e validação de um novo fornecedor.',
+      'Alinhamento entre múltiplas áreas internas.',
+      'Tradução das necessidades do negócio em requisitos claros.',
+      'Garantia de entrega dentro do contexto e timing do evento.'
+    ],
+    artefatos: ['Analytics e Hotjar (monitoramento/insights)', 'Miro (fluxo de jornada)', 'FRP', 'Homologação de fornecedor', 'Validação de protótipos', 'Rituais de alinhamento']
   },
   {
-    id: 'martech-performance-ux',
-    titulo: 'Martech - Otimização com dados e UX',
+    id: 'mylegis-evolucao-rebranding',
+    titulo: 'MyLegis - Evolução Contínua e Rebranding da Plataforma',
     objetivoId: 'experiencia',
     objetivo: 'Experiência',
-    imagem: martechImg,
+    imagem: mylegisImg,
     problema:
-      'Havia ganho de tráfego, mas o processo de validação do que melhorar no produto era lento: decisões dependiam mais de percepção do que de evidência.',
+      'A plataforma MyLegis precisava evoluir continuamente para acompanhar necessidades de negócio e melhorar a experiência do usuário. Havia oportunidades de melhoria na usabilidade, hierarquia de informação pouco eficiente e necessidade de maior clareza na navegação, além da necessidade de estruturar melhor o fluxo de demandas do produto.',
     decisao:
-      'Conectei analytics/Hotjar com uma cadência de experimentação: hipóteses, medição e ajustes em pontos críticos da jornada do usuário.',
+      'Conduzi a evolução contínua da plataforma com foco em usabilidade e reorganização da experiência por meio de rebranding do layout. Reestruturei o visual para melhorar hierarquia de informação, priorizei melhorias com base no comportamento do usuário e organizei o fluxo de demandas/backlog com um processo contínuo de evolução.',
     impactos: [
-      'Aumentamos a capacidade de aprender rápido com menos risco.',
-      'Melhoramos fricções do percurso, aumentando clareza e consistência da experiência.',
-      'Transformamos dados em decisões que viraram backlog.'
+      'Melhoria na experiência do usuário.',
+      'Maior clareza na navegação e uso da plataforma.',
+      'Processo mais estruturado de evolução do produto.',
+      'Redução de fricções na jornada.',
+      'Maior previsibilidade nas entregas.'
     ],
     papel:
-      'PO orientado a evidência: desenho de hipóteses, definição de métricas, priorização de melhorias e validação pós-entrega.',
-    artefatos: ['Métricas e eventos', 'Mapa de jornada', 'Hipóteses', 'Backlog de experimentos']
+      'Atuei como Product Owner na gestão do produto: coordenação de atividades, execuções e entregas; organização e priorização de backlog (Asana); acompanhamento de melhorias contínuas; condução de testes e validações; análise de comportamento com Analytics e Hotjar; e interface entre áreas envolvidas.',
+    processo: [
+      'Análise de comportamento: uso de Analytics e Hotjar para identificar fricções na jornada.',
+      'Definição de melhorias: priorização por impacto e estruturação do backlog no Asana.',
+      'Rebranding: revisão da hierarquia de informação e redefinição do layout/organização visual.',
+      'Execução e validação: acompanhamento das entregas, testes e validações antes de publicação.'
+    ],
+    desafios: [
+      'Equilibrar evolução visual com continuidade do produto.',
+      'Priorizar melhorias em um cenário de demandas contínuas.',
+      'Traduzir dados de comportamento em decisões práticas.',
+      'Alinhar expectativas entre áreas envolvidas.'
+    ],
+    artefatos: ['Analytics e Hotjar', 'Backlog no Asana', 'Hipóteses de melhoria', 'Testes e validações', 'Rebranding de layout']
   },
-  {
-    id: 'rebranding-cordial',
-    titulo: 'Rebranding - Identidade que sustenta produto',
-    objetivoId: 'crescimento',
-    objetivo: 'Crescimento',
-    imagem: rebrandingImg,
-    problema:
-      'A marca precisava atualizar sua proposta para sustentar a evolução do produto digital e melhorar percepção do valor para o público.',
-    decisao:
-      'Estruturei o direcionamento do rebranding e garanti coerência com a experiência: identidade visual aplicada aos pontos de contato e alinhamento de linguagem para reduzir ambiguidade.',
-    impactos: [
-      'Aumentamos consistência e clareza de comunicação em interfaces e materiais.',
-      'Facilitamos a evolução do produto digital com uma base visual coerente.',
-      'Fortalecemos a percepção de valor do usuário a partir da identidade.'
-    ],
-    papel:
-      'Condução do produto e UX: definição do direcionamento, priorização das adaptações e acompanhamento da aplicação da identidade.',
-    artefatos: ['Direção criativa', 'Checklist de consistência', 'Guia de aplicação', 'Validação com stakeholders']
-  }
 ]
 
 const casesFiltrados = computed(() => {
