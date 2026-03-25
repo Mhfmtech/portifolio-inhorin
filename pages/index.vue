@@ -18,7 +18,12 @@
       <v-row>
         <v-col v-for="(etapa, idx) in processoEtapas" :key="idx" cols="12" md="6">
           <v-card class="decision-card" variant="flat">
-            <div class="decision-index">0{{ idx + 1 }}</div>
+            <div class="decision-card-head">
+              <div class="decision-index">0{{ idx + 1 }}</div>
+              <div class="decision-icon-wrap" aria-hidden="true">
+                <v-icon :icon="etapa.icon" size="28" class="decision-icon" />
+              </div>
+            </div>
             <h3 class="decision-title">{{ etapa.titulo }}</h3>
             <p class="decision-text">{{ etapa.texto }}</p>
           </v-card>
@@ -51,13 +56,13 @@
       <v-row justify="center" class="mb-10">
         <v-col cols="12" md="10">
           <p class="text-body-1 text-center mb-0">
-            Meu background mistura PO/UX com front-end. Isso acelera decisões, reduz retrabalho e melhora a qualidade do que vai para produção.
+            Meu background mistura PO/UX com front-end. Como Tech Lead, grande parte do dia a dia era próxima ao de PO: organizar e priorizar backlog, conduzir ritos e alinhar entregas com as metodologias do time (Scrum e práticas complementares). Isso acelera decisões, reduz retrabalho e melhora o que vai para produção.
           </p>
         </v-col>
       </v-row>
 
       <v-row>
-        <v-col v-for="(b, idx) in diferencialBullets" :key="idx" cols="12" md="4">
+        <v-col v-for="(b, idx) in diferencialBullets" :key="idx" cols="12" md="6" lg="3">
           <v-card class="diff-card" variant="flat">
             <p class="diff-bullet">{{ b }}</p>
           </v-card>
@@ -176,6 +181,9 @@
             Sou Product Owner com foco em UX e estratégia digital, com experiência em front-end e liderança técnica.
           </p>
           <p class="text-body-1 text-center text-md-left mb-6">
+            Na experiência como Tech Lead, conduzi grande parte das atividades típicas de PO junto ao time de desenvolvimento: estruturação e priorização do backlog, planejamento de sprints e ritos alinhados a Scrum (e outras práticas ágeis quando faziam sentido), além de alinhar stakeholders com a capacidade de entrega.
+          </p>
+          <p class="text-body-1 text-center text-md-left mb-6">
             Minha atuação conecta discovery orientada a evidência, priorização com trade-offs e acompanhamento de impacto pós-entrega.
           </p>
           <p class="text-body-1 text-center text-md-left mb-0">
@@ -238,22 +246,27 @@ import mauroImage from '~/assets/mauro.jpg'
 
 const processoEtapas = [
   {
+    icon: 'mdi-compass-outline',
     titulo: 'Discovery e alinhamento',
     texto: 'Objetivo do produto, stakeholders, restrições e “o que precisa ser verdade” para a iniciativa avançar.'
   },
   {
+    icon: 'mdi-clipboard-search-outline',
     titulo: 'Diagnóstico com evidências',
     texto: 'Pesquisa, analytics e feedback para entender o problema real (e não só a superfície percebida).'
   },
   {
+    icon: 'mdi-flask-outline',
     titulo: 'Hipótese + métrica',
     texto: 'Defino o que testar, como medir sucesso e quais sinais indicam aprendizado ou necessidade de pivot.'
   },
   {
+    icon: 'mdi-swap-vertical',
     titulo: 'Priorização e trade-offs',
     texto: 'Organizo backlog considerando impacto, esforço, dependências e capacidade real do time.'
   },
   {
+    icon: 'mdi-rocket-launch-outline',
     titulo: 'Entrega e aprendizado',
     texto: 'Acompanho pós-release, valido resultados e transformo evidência em decisão para a próxima iteração.'
   }
@@ -277,7 +290,8 @@ const impactoCards = [
 const diferencialBullets = [
   'Transformo UX em requisitos objetivos (com critérios de sucesso).',
   'Antecipação técnica para evitar gargalos antes de investir tempo do time.',
-  'Fecho o ciclo: validação → decisão → execução → métrica.'
+  'Fecho o ciclo: validação → decisão → execução → métrica.',
+  'Tech Lead com forte viés de PO: backlog negociado, Scrum e ritos usados para dar previsibilidade ao time.'
 ]
 
 const marcos = [
@@ -626,11 +640,38 @@ section {
   height: 100%;
 }
 
+.decision-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
 .decision-index {
   color: #64c8ff;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+.decision-icon-wrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(100, 200, 255, 0.12);
+  border: 1px solid rgba(100, 200, 255, 0.28);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.decision-icon {
+  color: #8fd4ff !important;
+  opacity: 0.95;
 }
 
 .decision-title {
