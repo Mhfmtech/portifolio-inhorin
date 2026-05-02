@@ -1,10 +1,9 @@
 <template>
   <div class="about-page">
     <v-container class="py-16">
-      <h2 class="text-h3 text-center mb-8">Sobre (na prática)</h2>
+      <h2 class="text-h3 text-center mb-8">{{ t('aboutPage.title') }}</h2>
       <p class="text-body-1 text-center mb-10 about-subtitle">
-        Product Owner orientado a UX e dados, com background em front-end e estratégia digital.
-        Transformo necessidades em decisões com causa, reduzo retrabalho e acompanho impacto pós-entrega.
+        {{ t('aboutPage.subtitle') }}
       </p>
 
       <v-row>
@@ -19,7 +18,7 @@
       <v-row class="mt-12" justify="center">
         <v-col cols="12" md="8">
           <p class="text-body-1 text-center mb-0 about-callout">
-            Meu objetivo é ajudar equipes a construir o que importa: clareza, prioridades negociadas e aprendizagem contínua.
+            {{ t('aboutPage.callout') }}
           </p>
         </v-col>
       </v-row>
@@ -28,11 +27,19 @@
 </template>
 
 <script setup>
-const marcos = [
-  { titulo: 'Discovery orientado a evidência', texto: 'Estruturo hipóteses e faço perguntas certas para orientar o que construir.' },
-  { titulo: 'Priorização com trade-offs', texto: 'Backlog alinhado a impacto, capacidade e dependências do time.' },
-  { titulo: 'Impacto pós-entrega', texto: 'Acompanho resultado e aprendizado para iterar com segurança.' }
-]
+import { computed } from 'vue'
+
+const { t } = useI18n()
+const { resolvedTm } = useResolvedTm()
+
+useHead(() => ({
+  title: t('meta.pageTitleAbout'),
+}))
+
+const marcos = computed(() => {
+  const m = resolvedTm('aboutPage.marcos')
+  return Array.isArray(m) ? m : []
+})
 </script>
 
 <style scoped>

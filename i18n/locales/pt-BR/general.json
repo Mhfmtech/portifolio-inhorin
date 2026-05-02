@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "inicio": "Início",
+    "cases": "Cases",
+    "processo": "Processo",
+    "impacto": "Impacto",
+    "contato": "Contato"
+  },
+  "lang": {
+    "pt": "PT",
+    "en": "EN",
+    "switchTo": "Mudar idioma"
+  },
+  "meta": {
+    "title": "Mauro Henrique - Product Owner (PO) | UX + Front-end",
+    "description": "Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável conectando experiência do usuário, negócio e tecnologia.",
+    "keywords": "product owner, PO, UX, UI, front-end, estratégia digital, discovery, priorização, métricas, produto",
+    "ogTitle": "Mauro Henrique - Product Owner (PO) | UX + Front-end",
+    "ogDescription": "Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável.",
+    "twitterDescription": "Product Owner orientado a UX e dados. Priorização, decisões e impacto mensurável.",
+    "pageTitleHome": "Product Owner | Cases e Processo",
+    "pageTitleAbout": "Sobre | Product Owner"
+  },
+  "footer": {
+    "tagline": "Product Owner (PO) • UX • Produto • Front-end",
+    "rights": "Todos os direitos reservados"
+  },
+  "banner": {
+    "role": "Product Owner",
+    "tagline": "Product Owner que conecta negócio, UX e tecnologia para evoluir produtos digitais complexos",
+    "highlight1": "+3 anos atuando com produtos digitais",
+    "highlight2": "PO na prática em ambiente corporativo",
+    "highlight3": "Experiência com integrações, CMS e plataformas",
+    "highlightsAria": "Experiência profissional",
+    "ctaCases": "Ver Cases de Produto",
+    "ctaContact": "Contato"
+  },
+  "home": {
+    "processo": {
+      "title": "Processo de decisão",
+      "intro": "Eu estruturo decisões para reduzir risco, alinhar stakeholders e tornar a entrega previsível.",
+      "etapas": [
+        {
+          "titulo": "Discovery e alinhamento",
+          "texto": "Objetivo do produto, stakeholders, restrições e “o que precisa ser verdade” para a iniciativa avançar."
+        },
+        {
+          "titulo": "Diagnóstico com evidências",
+          "texto": "Pesquisa, analytics e feedback para entender o problema real (e não só a superfície percebida)."
+        },
+        {
+          "titulo": "Hipótese + métrica",
+          "texto": "Defino o que testar, como medir sucesso e quais sinais indicam aprendizado ou necessidade de pivot."
+        },
+        {
+          "titulo": "Priorização e trade-offs",
+          "texto": "Organizo backlog considerando impacto, esforço, dependências e capacidade real do time."
+        },
+        {
+          "titulo": "Entrega e aprendizado",
+          "texto": "Acompanho pós-release, valido resultados e transformo evidência em decisão para a próxima iteração."
+        }
+      ]
+    },
+    "impacto": {
+      "title": "Impacto gerado",
+      "intro": "Eu avalio impacto por resultado (métrica + evidência) e por aprendizagem (o que muda no produto depois da entrega).",
+      "cards": [
+        {
+          "titulo": "Decisão com causa",
+          "texto": "Reduzo “achismo” com hipóteses claras, critérios de sucesso e acompanhamento de métricas."
+        },
+        {
+          "titulo": "Produto com previsibilidade",
+          "texto": "Priorização e ritos de alinhamento que aumentam a cadência e diminuem retrabalho."
+        },
+        {
+          "titulo": "Melhoria contínua",
+          "texto": "Aprendizado pós-entrega: ajuste de escopo, correção de fricções e evolução do valor para o usuário."
+        }
+      ]
+    },
+    "diferencial": {
+      "title": "Diferencial híbrido",
+      "intro": "Meu background mistura PO/UX com front-end. Como Tech Lead, grande parte do dia a dia era próxima ao de PO: organizar e priorizar backlog, conduzir ritos e alinhar entregas com as metodologias do time (Scrum e práticas complementares). Isso acelera decisões, reduz retrabalho e melhora o que vai para produção.",
+      "bullets": [
+        "Transformo UX em requisitos objetivos (com critérios de sucesso).",
+        "Antecipação técnica para evitar gargalos antes de investir tempo do time.",
+        "Fecho o ciclo: validação → decisão → execução → métrica.",
+        "Tech Lead com forte viés de PO: backlog negociado, Scrum e ritos usados para dar previsibilidade ao time."
+      ]
+    },
+    "sobre": {
+      "title": "Sobre (na prática)",
+      "p1": "Sou Product Owner com foco em UX e estratégia digital, com experiência em front-end e liderança técnica.",
+      "p2": "Na experiência como Tech Lead, conduzi grande parte das atividades típicas de PO junto ao time de desenvolvimento: estruturação e priorização do backlog, planejamento de sprints e ritos alinhados a Scrum (e outras práticas ágeis quando faziam sentido), além de alinhar stakeholders com a capacidade de entrega.",
+      "p3": "Minha atuação conecta discovery orientada a evidência, priorização com trade-offs e acompanhamento de impacto pós-entrega.",
+      "p4": "Busco oportunidades onde decisões de produto aceleram crescimento, reduzem fricção e melhoram a experiência do usuário.",
+      "marcos": [
+        {
+          "titulo": "Discovery orientado a evidência",
+          "texto": "Estruturo perguntas e hipóteses para orientar o que construir."
+        },
+        {
+          "titulo": "Priorização com trade-offs",
+          "texto": "Backlog alinhado a impacto, capacidade e dependências."
+        },
+        {
+          "titulo": "Impacto pós-entrega",
+          "texto": "Acompanhe resultado e aprendizado para iterar com segurança."
+        }
+      ]
+    },
+    "contato": {
+      "title": "Vamos conversar?",
+      "intro": "Se você procura um PO que estrutura decisões com evidência, transforma UX em requisitos e acompanha impacto, vamos conversar."
+    },
+    "a11y": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "aboutPage": {
+    "title": "Sobre (na prática)",
+    "subtitle": "Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Transformo necessidades em decisões com causa, reduzo retrabalho e acompanho impacto pós-entrega.",
+    "callout": "Meu objetivo é ajudar equipes a construir o que importa: clareza, prioridades negociadas e aprendizagem contínua.",
+    "marcos": [
+      {
+        "titulo": "Discovery orientado a evidência",
+        "texto": "Estruturo hipóteses e faço perguntas certas para orientar o que construir."
+      },
+      {
+        "titulo": "Priorização com trade-offs",
+        "texto": "Backlog alinhado a impacto, capacidade e dependências do time."
+      },
+      {
+        "titulo": "Impacto pós-entrega",
+        "texto": "Acompanho resultado e aprendizado para iterar com segurança."
+      }
+    ]
+  }
+}

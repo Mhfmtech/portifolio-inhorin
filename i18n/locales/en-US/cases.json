@@ -1,0 +1,133 @@
+{
+  "cases": {
+    "title": "Product case studies",
+    "subtitle": "Context → Decision → Impact. What I analyzed, how I made choices, and what evidence and learning came from delivery.",
+    "categories": {
+      "todos": "All",
+      "crescimento": "Growth",
+      "eficiencia": "Efficiency",
+      "experiencia": "Experience",
+      "plataforma": "Platform"
+    },
+    "labels": {
+      "problema": "Problem",
+      "decisao": "Decision"
+    },
+    "modal": {
+      "close": "Close",
+      "contexto": "Context",
+      "decisao": "Decision",
+      "impacto": "Impact delivered",
+      "papel": "My role",
+      "processo": "Process",
+      "desafios": "Challenges"
+    },
+    "objectives": {
+      "plataforma": "Platform",
+      "eficiencia": "Efficiency",
+      "experiencia": "Experience",
+      "crescimento": "Growth"
+    },
+    "items": {
+      "gs1": {
+        "titulo": "GS1 Brazil - Migration and integrations",
+        "problema": "GS1 Brazil’s digital ecosystem relied on a legacy solution (SharePoint), with limited flexibility for product evolution and constraints integrating with critical systems. That affected platform velocity, the user experience (especially in the logged-in area), and integration with CRM and automations.",
+        "decisao": "I led the platform migration to a modern architecture based on a headless CMS and a performant front-end. By defining functional and technical requirements, I prioritized critical integrations (logged-in area, CRM, payments, and RPAs), structured a progressive transition plan, and ensured operational continuity during the migration.",
+        "impactos": [
+          "Unified content foundation.",
+          "Faster evolution of the digital product.",
+          "Less rework in integrations.",
+          "Greater consistency across systems.",
+          "Improved stability of the logged-in user experience."
+        ],
+        "papel": "I acted as Product Owner with discovery alongside stakeholders from multiple areas, backlog definition and prioritization, translating business needs into technical requirements, vendor coordination, delivery/validation follow-up, and ongoing alignment between technical and business teams. For monitoring and insights I used Analytics and Hotjar; for journey flows I used Miro.",
+        "processo": [
+          "Current-state diagnosis: legacy limitations and technical dependency mapping.",
+          "Solution design: target architecture and prioritization of highest-impact deliveries.",
+          "Transition planning: evolutionary roadmap and migration stages.",
+          "Execution and follow-up: backlog management, continuous delivery validation, and adjustments based on business needs."
+        ],
+        "desafios": [
+          "Integration complexity across multiple systems.",
+          "Dependence on external vendors.",
+          "Keeping operations running during migration.",
+          "Alignment across areas with different priorities."
+        ],
+        "artefatos": [
+          "Analytics and Hotjar (monitoring/insights)",
+          "Miro (journey flows)",
+          "Functional and technical requirements",
+          "Migration roadmap",
+          "Prioritized backlog",
+          "Alignment rituals"
+        ]
+      },
+      "brasil": {
+        "titulo": "Brasil em Código - Event platform evolution",
+        "problema": "The Brasil em Código site had an outdated layout, rigid editing structure, and heavy reliance on an external vendor—slowing publishing, making it hard to update the program/registrations, and limiting the internal team’s autonomy.",
+        "decisao": "I led the platform evolution focused on autonomy and operational speed: I surfaced business pain points, defined scope, onboarded a new vendor, and validated technical proposals aligned with the event context.",
+        "impactos": [
+          "Significant increase in internal team autonomy.",
+          "Reduced vendor dependency for updates.",
+          "Faster publishing and event content updates.",
+          "Better fit for the event’s dynamic needs.",
+          "Visual evolution with a more modern, adaptable layout."
+        ],
+        "papel": "Hands-on Product Owner work: pain discovery, scope structuring, vendor sourcing/onboarding, technical-strategic alignment, prototype validation, and coordination with the internal content team through launch. For monitoring and insights I used Analytics and Hotjar; for journey flows I used Miro.",
+        "processo": [
+          "Diagnosis: operational bottlenecks and dependencies on the current vendor.",
+          "Structuring: functional requirements (FRP) and stakeholder expectation alignment.",
+          "Vendor selection: sourcing, evaluation, and onboarding of the best fit.",
+          "Validation: prototype review, adjustments, and business fit.",
+          "Execution: internal content coordination (copy/assets), updates, and publishing the new site."
+        ],
+        "desafios": [
+          "Sourcing and validating a new vendor.",
+          "Alignment across multiple internal areas.",
+          "Translating business needs into clear requirements.",
+          "Delivery within the event’s context and timing."
+        ],
+        "artefatos": [
+          "Analytics and Hotjar (monitoring/insights)",
+          "Miro (journey flows)",
+          "FRP",
+          "Vendor onboarding",
+          "Prototype validation",
+          "Alignment rituals"
+        ]
+      },
+      "mylegis": {
+        "titulo": "MyLegis - Continuous evolution and platform rebranding",
+        "problema": "The MyLegis platform needed continuous evolution to meet business needs and improve the user experience. There were opportunities to improve usability, information hierarchy was inefficient, navigation needed more clarity, and the product demand flow needed better structure.",
+        "decisao": "I led continuous evolution with a focus on usability and experience reorganization through layout rebranding. I restructured the visual design to improve information hierarchy, prioritized improvements based on user behavior, and organized the demand/backlog flow with an ongoing evolution process.",
+        "impactos": [
+          "Improved user experience.",
+          "Clearer navigation and platform use.",
+          "A more structured product evolution process.",
+          "Reduced friction in the journey.",
+          "More predictable deliveries."
+        ],
+        "papel": "I acted as Product Owner managing the product: coordinating activities, execution, and deliveries; organizing and prioritizing the backlog (Asana); following continuous improvements; leading tests and validations; behavior analysis with Analytics and Hotjar; and interfacing across involved areas.",
+        "processo": [
+          "Behavior analysis: Analytics and Hotjar to identify journey friction.",
+          "Improvement definition: impact-based prioritization and backlog structuring in Asana.",
+          "Rebranding: information hierarchy review and visual layout reorganization.",
+          "Execution and validation: delivery follow-up, testing, and pre-publish validation."
+        ],
+        "desafios": [
+          "Balancing visual evolution with product continuity.",
+          "Prioritizing improvements with continuous demand.",
+          "Turning behavior data into practical decisions.",
+          "Aligning expectations across involved areas."
+        ],
+        "artefatos": [
+          "Analytics and Hotjar",
+          "Backlog in Asana",
+          "Improvement hypotheses",
+          "Tests and validations",
+          "Layout rebranding"
+        ]
+      }
+    }
+  }
+}

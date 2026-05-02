@@ -5,7 +5,7 @@
         <div class="logo">
           <img :src="logo2" alt="Logo Mauro" loading="lazy" />
         </div>
-        <p class="description">Product Owner (PO) • UX • Produto • Front-end</p>
+        <p class="description">{{ t('footer.tagline') }}</p>
       </div>
       
       <div class="footer-section social-links">
@@ -24,7 +24,7 @@
       </div>
       
       <div class="footer-section">
-        <p class="copyright">© {{ new Date().getFullYear() }} Todos os direitos reservados</p>
+        <p class="copyright">© {{ new Date().getFullYear() }} {{ t('footer.rights') }}</p>
       </div>
     </div>
   </footer>
@@ -32,6 +32,8 @@
 
 <script setup>
 import logo2 from '~/assets/logo2.png'
+
+const { t } = useI18n()
 
 const socialLinks = [
   { icon: 'mdi-github', link: 'https://github.com/Mhfmtech' },

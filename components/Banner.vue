@@ -11,24 +11,24 @@
     </div>
     <canvas ref="canvasRef" class="canvas"></canvas>
     <div class="content">
-      <p class="hero-role mb-2">Product Owner</p>
+      <p class="hero-role mb-2">{{ t('banner.role') }}</p>
       <h1 class="hero-name mb-4">Mauro Henrique</h1>
       <div class="text-h5 mb-6 elegant-subtitle">
-        <span class="block hero-tagline">Product Owner que conecta negócio, UX e tecnologia para evoluir produtos digitais complexos</span>
+        <span class="block hero-tagline">{{ t('banner.tagline') }}</span>
       </div>
 
-      <ul class="hero-highlights" aria-label="Experiência profissional">
+      <ul class="hero-highlights" :aria-label="t('banner.highlightsAria')">
         <li class="hero-highlight">
           <span class="hero-highlight-mark" aria-hidden="true" />
-          <span>+3 anos atuando com produtos digitais</span>
+          <span>{{ t('banner.highlight1') }}</span>
         </li>
         <li class="hero-highlight">
           <span class="hero-highlight-mark" aria-hidden="true" />
-          <span>PO na prática em ambiente corporativo</span>
+          <span>{{ t('banner.highlight2') }}</span>
         </li>
         <li class="hero-highlight">
           <span class="hero-highlight-mark" aria-hidden="true" />
-          <span>Experiência com integrações, CMS e plataformas</span>
+          <span>{{ t('banner.highlight3') }}</span>
         </li>
       </ul>
 
@@ -39,7 +39,7 @@
           class="mr-4 elegant-btn"
           href="#cases"
         >
-          Ver Cases de Produto
+          {{ t('banner.ctaCases') }}
         </v-btn>
         <v-btn
           variant="outlined"
@@ -48,7 +48,7 @@
           class="elegant-btn"
           href="#contato"
         >
-          Contato
+          {{ t('banner.ctaContact') }}
         </v-btn>
       </div>
     </div>
@@ -58,6 +58,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import img1 from '~/assets/img1.png'
+
+const { t } = useI18n()
 
 const canvasRef = ref(null)
 const containerRef = ref(null)
@@ -376,7 +378,7 @@ onUnmounted(() => {
   letter-spacing: 0.01em;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 17rem;
+  max-width: 27rem;
 }
 
 .hero-highlight-mark {

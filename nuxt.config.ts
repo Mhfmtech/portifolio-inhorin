@@ -1,8 +1,45 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const GA_MEASUREMENT_ID = 'G-H67GSQC26Z'
+const SITE_URL = 'https://www.mauroh.com.br'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      /** Hotjar Site ID — sobrescreva com NUXT_PUBLIC_HOTJAR_SITE_ID no .env */
+      hotjarSiteId: '6427774',
+      /** Versão do snippet (hjsv) — NUXT_PUBLIC_HOTJAR_SNIPPET_VERSION */
+      hotjarSnippetVersion: '6',
+    },
+  },
+  modules: ['@nuxtjs/i18n'],
+  i18n: {
+    locales: [
+      {
+        code: 'pt-BR',
+        language: 'pt-BR',
+        name: 'Português (Brasil)',
+        files: ['pt-BR/general.json', 'pt-BR/cases.json'],
+      },
+      {
+        code: 'en-US',
+        language: 'en-US',
+        name: 'English (US)',
+        files: ['en-US/general.json', 'en-US/cases.json'],
+      },
+    ],
+    defaultLocale: 'pt-BR',
+    lazy: true,
+    langDir: 'locales',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      fallbackLocale: 'pt-BR',
+    },
+    baseUrl: SITE_URL,
+  },
   css: [
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css',
@@ -18,26 +55,17 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Mauro Henrique - Product Owner (PO) | UX + Front-end',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável conectando experiência do usuário, negócio e tecnologia.' },
-        { name: 'keywords', content: 'product owner, PO, UX, UI, front-end, estratégia digital, discovery, priorização, métricas, produto' },
         { name: 'author', content: 'Mauro Henrique' },
         { name: 'robots', content: 'index, follow' },
-        { property: 'og:title', content: 'Mauro Henrique - Product Owner (PO) | UX + Front-end' },
-        { property: 'og:description', content: 'Product Owner orientado a UX e dados, com background em front-end e estratégia digital. Priorizo backlog, estruturo decisões e entrego impacto mensurável.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://www.mauroh.com.br' },
-        { property: 'og:image', content: 'https://www.mauroh.com.br/og-image.jpg' },
+        { property: 'og:image', content: `${SITE_URL}/og-image.jpg` },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Mauro Henrique - Product Owner (PO) | UX + Front-end' },
-        { name: 'twitter:description', content: 'Product Owner orientado a UX e dados. Priorização, decisões e impacto mensurável.' },
-        { name: 'twitter:image', content: 'https://www.mauroh.com.br/twitter-image.jpg' }
+        { name: 'twitter:image', content: `${SITE_URL}/twitter-image.jpg` }
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.mauroh.com.br' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
       script: [
@@ -62,8 +90,8 @@ gtag('config', '${GA_MEASUREMENT_ID}');
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Mauro Henrique",
-            "url": "https://www.mauroh.com.br",
-            "image": "https://www.mauroh.com.br/mauro.jpg",
+            "url": SITE_URL,
+            "image": `${SITE_URL}/mauro.jpg`,
             "sameAs": [
               "https://github.com/Mhfmtech",
               "https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/",

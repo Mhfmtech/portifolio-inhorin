@@ -1,9 +1,9 @@
 <template>
   <section class="cases-section" id="cases">
     <div class="container">
-      <h2 class="text-h3 mb-8 elegant-title">Cases de Produto</h2>
+      <h2 class="text-h3 mb-8 elegant-title">{{ t('cases.title') }}</h2>
       <p class="text-body-1 section-subtitle text-center mb-10">
-        Contexto → Decisão → Impacto. O que eu analisei, como cheguei nas escolhas e quais evidências/aprendizados vieram da entrega.
+        {{ t('cases.subtitle') }}
       </p>
 
       <div class="filtro-container mb-8">
@@ -44,10 +44,10 @@
 
             <h3 class="case-title">{{ caseItem.titulo }}</h3>
             <p class="case-text">
-              <b>Problema:</b> {{ caseItem.problema }}
+              <b>{{ t('cases.labels.problema') }}:</b> {{ caseItem.problema }}
             </p>
             <p class="case-text">
-              <b>Decisão:</b> {{ caseItem.decisao }}
+              <b>{{ t('cases.labels.decisao') }}:</b> {{ caseItem.decisao }}
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@
     >
       <v-card class="modal-card">
         <v-toolbar class="modal-toolbar">
-          <v-btn icon dark @click="fecharModal" aria-label="Fechar">
+          <v-btn icon dark @click="fecharModal" :aria-label="t('cases.modal.close')">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title class="modal-title">{{ caseSelecionado?.titulo }}</v-toolbar-title>
@@ -81,17 +81,17 @@
             <v-col cols="12" md="7">
               <div class="modal-details">
                 <div class="modal-section">
-                  <h3 class="modal-section-title">Contexto</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.contexto') }}</h3>
                   <p class="modal-section-text">{{ caseSelecionado?.problema }}</p>
                 </div>
 
                 <div class="modal-section">
-                  <h3 class="modal-section-title">Decisão</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.decisao') }}</h3>
                   <p class="modal-section-text">{{ caseSelecionado?.decisao }}</p>
                 </div>
 
                 <div class="modal-section">
-                  <h3 class="modal-section-title">Impacto gerado</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.impacto') }}</h3>
                   <ul class="impact-list">
                     <li v-for="(it, idx) in caseSelecionado?.impactos" :key="idx">
                       {{ it }}
@@ -100,12 +100,12 @@
                 </div>
 
                 <div class="modal-section">
-                  <h3 class="modal-section-title">Meu papel</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.papel') }}</h3>
                   <p class="modal-section-text">{{ caseSelecionado?.papel }}</p>
                 </div>
 
                 <div v-if="caseSelecionado?.processo?.length" class="modal-section">
-                  <h3 class="modal-section-title">Processo</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.processo') }}</h3>
                   <ul class="impact-list">
                     <li v-for="(it, idx) in caseSelecionado?.processo" :key="`processo-${idx}`">
                       {{ it }}
@@ -114,7 +114,7 @@
                 </div>
 
                 <div v-if="caseSelecionado?.desafios?.length" class="modal-section">
-                  <h3 class="modal-section-title">Desafios</h3>
+                  <h3 class="modal-section-title">{{ t('cases.modal.desafios') }}</h3>
                   <ul class="impact-list">
                     <li v-for="(it, idx) in caseSelecionado?.desafios" :key="`desafio-${idx}`">
                       {{ it }}
@@ -149,124 +149,50 @@ import gs1Img from '~/assets/cases/gs1-case.png'
 import brasilCodigoImg from '~/assets/cases/brasil-em-codigo-case.png'
 import mylegisImg from '~/assets/cases/mylegis-case.png'
 
+const { t } = useI18n()
+const { resolvedTm } = useResolvedTm()
+
 const categoriaAtiva = ref('todos')
 const modalAberto = ref(false)
 const caseSelecionado = ref(null)
 
-const categorias = [
-  { id: 'todos', nome: 'Todos' },
-  { id: 'crescimento', nome: 'Crescimento' },
-  { id: 'eficiencia', nome: 'Eficiência' },
-  { id: 'experiencia', nome: 'Experiência' },
-  { id: 'plataforma', nome: 'Plataforma' }
+const categorias = computed(() => [
+  { id: 'todos', nome: t('cases.categories.todos') },
+  { id: 'crescimento', nome: t('cases.categories.crescimento') },
+  { id: 'eficiencia', nome: t('cases.categories.eficiencia') },
+  { id: 'experiencia', nome: t('cases.categories.experiencia') },
+  { id: 'plataforma', nome: t('cases.categories.plataforma') },
+])
+
+const caseBlueprint = [
+  { id: 'gs1-migracao', key: 'gs1', objetivoId: 'plataforma', imagem: gs1Img },
+  { id: 'brasil-em-codigo-plataforma-evento', key: 'brasil', objetivoId: 'eficiencia', imagem: brasilCodigoImg },
+  { id: 'mylegis-evolucao-rebranding', key: 'mylegis', objetivoId: 'experiencia', imagem: mylegisImg },
 ]
 
-const cases = [
-  {
-    id: 'gs1-migracao',
-    titulo: 'GS1 Brasil - Migração e integrações',
-    objetivoId: 'plataforma',
-    objetivo: 'Plataforma',
-    imagem: gs1Img,
-    problema:
-      'O ecossistema digital da GS1 Brasil dependia de uma solução legada (SharePoint), com baixa flexibilidade para evolução do produto e limitações na integração com sistemas críticos. Isso impactava a velocidade de evolução da plataforma, a experiência do usuário (principalmente na área logada) e a capacidade de integração com CRM e automações.',
-    decisao:
-      'Conduzi junto a equipe de trabalho a migração da plataforma para uma arquitetura moderna baseada em CMS desacoplado e front-end performático. Definindo requisitos funcionais e técnicos, priorizei integrações críticas (área logada, CRM, pagamentos e RPAs), estruturei um plano de transição progressiva e garanti continuidade operacional durante a migração.',
-    impactos: [
-      'Unificação da base de conteúdo.',
-      'Aceleração na evolução do produto digital.',
-      'Redução de retrabalho em integrações.',
-      'Maior consistência entre sistemas.',
-      'Melhoria na estabilidade da experiência do usuário logado.'
-    ],
-    papel:
-      'Atuei como Product Owner com discovery junto a stakeholders de múltiplas áreas, definição e priorização de backlog, tradução de necessidades do negócio em requisitos técnicos, interface com fornecedores, acompanhamento de entregas/validações e alinhamento contínuo entre times técnicos e de negócio. No monitoramento e na geração de insights, utilizei Analytics e Hotjar; para construção e desenho de fluxo de jornada, utilizei Miro.',
-    processo: [
-      'Diagnóstico do cenário atual: identificação de limitações do ambiente legado e mapeamento de dependências técnicas.',
-      'Estruturação da solução: definição da arquitetura alvo e priorização das entregas com maior impacto.',
-      'Planejamento da transição: construção de roadmap evolutivo e definição das etapas de migração.',
-      'Execução e acompanhamento: gestão de backlog, validação contínua de entregas e ajustes conforme necessidades do negócio.'
-    ],
-    desafios: [
-      'Complexidade de integração com múltiplos sistemas.',
-      'Dependência de fornecedores externos.',
-      'Necessidade de manter a operação ativa durante a migração.',
-      'Alinhamento entre áreas com prioridades diferentes.'
-    ],
-    artefatos: ['Analytics e Hotjar (monitoramento/insights)', 'Miro (fluxo de jornada)', 'Requisitos funcionais e técnicos', 'Roadmap de migração', 'Backlog priorizado', 'Rituais de alinhamento']
-  },
-  {
-    id: 'brasil-em-codigo-plataforma-evento',
-    titulo: 'Brasil em Código - Evolução da Plataforma de Evento',
-    objetivoId: 'eficiencia',
-    objetivo: 'Eficiência',
-    imagem: brasilCodigoImg,
-    problema:
-      'O site do Brasil em Código tinha layout defasado, estrutura engessada para edição e alta dependência de fornecedor externo, gerando lentidão na publicação, dificuldade para atualizar programação/inscrições e baixa autonomia do time interno.',
-    decisao:
-      'Conduzi a evolução da plataforma com foco em autonomia e agilidade operacional: levantei dores do negócio, defini escopo da solução, homologuei novo fornecedor e validei propostas técnicas com aderência ao contexto do evento.',
-    impactos: [
-      'Aumento significativo na autonomia do time interno.',
-      'Redução da dependência de fornecedores para atualizações.',
-      'Maior agilidade na publicação de conteúdos e atualizações do evento.',
-      'Melhor adaptação às necessidades dinâmicas do evento.',
-      'Evolução visual da plataforma com layout mais moderno e adaptável.'
-    ],
-    papel:
-      'Atuação como Product Owner na ponta: levantamento de dores, estruturação do escopo, captação/homologação de fornecedor, condução de alinhamentos técnico-estratégicos, validação de protótipos e coordenação do time interno de conteúdo até a entrega. Para monitoramento e geração de insights, utilizei Analytics e Hotjar; para construção e desenho de fluxo de jornada, utilizei Miro.',
-    processo: [
-      'Diagnóstico: identificação de gargalos operacionais e mapeamento de dependências com fornecedor atual.',
-      'Estruturação: definição de requisitos funcionais (FRP) e alinhamento de expectativas com stakeholders.',
-      'Seleção de fornecedor: prospecção, avaliação e homologação da melhor proposta.',
-      'Validação: análise de protótipos, ajustes e garantia de aderência ao negócio.',
-      'Execução: coordenação de conteúdo interno (texto/imagem), atualização e publicação do novo site.'
-    ],
-    desafios: [
-      'Captação e validação de um novo fornecedor.',
-      'Alinhamento entre múltiplas áreas internas.',
-      'Tradução das necessidades do negócio em requisitos claros.',
-      'Garantia de entrega dentro do contexto e timing do evento.'
-    ],
-    artefatos: ['Analytics e Hotjar (monitoramento/insights)', 'Miro (fluxo de jornada)', 'FRP', 'Homologação de fornecedor', 'Validação de protótipos', 'Rituais de alinhamento']
-  },
-  {
-    id: 'mylegis-evolucao-rebranding',
-    titulo: 'MyLegis - Evolução Contínua e Rebranding da Plataforma',
-    objetivoId: 'experiencia',
-    objetivo: 'Experiência',
-    imagem: mylegisImg,
-    problema:
-      'A plataforma MyLegis precisava evoluir continuamente para acompanhar necessidades de negócio e melhorar a experiência do usuário. Havia oportunidades de melhoria na usabilidade, hierarquia de informação pouco eficiente e necessidade de maior clareza na navegação, além da necessidade de estruturar melhor o fluxo de demandas do produto.',
-    decisao:
-      'Conduzi a evolução contínua da plataforma com foco em usabilidade e reorganização da experiência por meio de rebranding do layout. Reestruturei o visual para melhorar hierarquia de informação, priorizei melhorias com base no comportamento do usuário e organizei o fluxo de demandas/backlog com um processo contínuo de evolução.',
-    impactos: [
-      'Melhoria na experiência do usuário.',
-      'Maior clareza na navegação e uso da plataforma.',
-      'Processo mais estruturado de evolução do produto.',
-      'Redução de fricções na jornada.',
-      'Maior previsibilidade nas entregas.'
-    ],
-    papel:
-      'Atuei como Product Owner na gestão do produto: coordenação de atividades, execuções e entregas; organização e priorização de backlog (Asana); acompanhamento de melhorias contínuas; condução de testes e validações; análise de comportamento com Analytics e Hotjar; e interface entre áreas envolvidas.',
-    processo: [
-      'Análise de comportamento: uso de Analytics e Hotjar para identificar fricções na jornada.',
-      'Definição de melhorias: priorização por impacto e estruturação do backlog no Asana.',
-      'Rebranding: revisão da hierarquia de informação e redefinição do layout/organização visual.',
-      'Execução e validação: acompanhamento das entregas, testes e validações antes de publicação.'
-    ],
-    desafios: [
-      'Equilibrar evolução visual com continuidade do produto.',
-      'Priorizar melhorias em um cenário de demandas contínuas.',
-      'Traduzir dados de comportamento em decisões práticas.',
-      'Alinhar expectativas entre áreas envolvidas.'
-    ],
-    artefatos: ['Analytics e Hotjar', 'Backlog no Asana', 'Hipóteses de melhoria', 'Testes e validações', 'Rebranding de layout']
-  },
-]
+const cases = computed(() =>
+  caseBlueprint.map((bp) => {
+    const base = `cases.items.${bp.key}`
+    return {
+      id: bp.id,
+      titulo: t(`${base}.titulo`),
+      objetivoId: bp.objetivoId,
+      objetivo: t(`cases.objectives.${bp.objetivoId}`),
+      imagem: bp.imagem,
+      problema: t(`${base}.problema`),
+      decisao: t(`${base}.decisao`),
+      impactos: resolvedTm(`${base}.impactos`),
+      papel: t(`${base}.papel`),
+      processo: resolvedTm(`${base}.processo`),
+      desafios: resolvedTm(`${base}.desafios`),
+      artefatos: resolvedTm(`${base}.artefatos`),
+    }
+  }),
+)
 
 const casesFiltrados = computed(() => {
-  if (categoriaAtiva.value === 'todos') return cases
-  return cases.filter((c) => c.objetivoId === categoriaAtiva.value)
+  if (categoriaAtiva.value === 'todos') return cases.value
+  return cases.value.filter((c) => c.objetivoId === categoriaAtiva.value)
 })
 
 const casesExibidos = computed(() => casesFiltrados.value)

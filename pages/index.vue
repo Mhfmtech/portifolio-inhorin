@@ -6,11 +6,11 @@
     <CasesDeProduto />
 
     <v-container id="processo" class="py-16">
-      <h2 class="text-h3 text-center mb-12">Processo de decisão</h2>
+      <h2 class="text-h3 text-center mb-12">{{ t('home.processo.title') }}</h2>
       <v-row justify="center" class="mb-10">
         <v-col cols="12" md="10">
           <p class="text-body-1 text-center mb-0">
-            Eu estruturo decisões para reduzir risco, alinhar stakeholders e tornar a entrega previsível.
+            {{ t('home.processo.intro') }}
           </p>
         </v-col>
       </v-row>
@@ -32,11 +32,11 @@
     </v-container>
 
     <v-container id="impacto" class="py-16">
-      <h2 class="text-h3 text-center mb-12">Impacto gerado</h2>
+      <h2 class="text-h3 text-center mb-12">{{ t('home.impacto.title') }}</h2>
       <v-row justify="center" class="mb-10">
         <v-col cols="12" md="10">
           <p class="text-body-1 text-center mb-0">
-            Eu avalio impacto por resultado (métrica + evidência) e por aprendizagem (o que muda no produto depois da entrega).
+            {{ t('home.impacto.intro') }}
           </p>
         </v-col>
       </v-row>
@@ -52,11 +52,11 @@
     </v-container>
 
     <v-container id="diferencial" class="py-16">
-      <h2 class="text-h3 text-center mb-12">Diferencial híbrido</h2>
+      <h2 class="text-h3 text-center mb-12">{{ t('home.diferencial.title') }}</h2>
       <v-row justify="center" class="mb-10">
         <v-col cols="12" md="10">
           <p class="text-body-1 text-center mb-0">
-            Meu background mistura PO/UX com front-end. Como Tech Lead, grande parte do dia a dia era próxima ao de PO: organizar e priorizar backlog, conduzir ritos e alinhar entregas com as metodologias do time (Scrum e práticas complementares). Isso acelera decisões, reduz retrabalho e melhora o que vai para produção.
+            {{ t('home.diferencial.intro') }}
           </p>
         </v-col>
       </v-row>
@@ -176,18 +176,18 @@
     <v-container id="sobre" class="py-16">
       <v-row justify="center" align="center">
         <v-col cols="12" md="6">
-          <h2 class="text-h3 text-center text-md-left mb-8">Sobre (na prática)</h2>
+          <h2 class="text-h3 text-center text-md-left mb-8">{{ t('home.sobre.title') }}</h2>
           <p class="text-body-1 text-center text-md-left mb-6">
-            Sou Product Owner com foco em UX e estratégia digital, com experiência em front-end e liderança técnica.
+            {{ t('home.sobre.p1') }}
           </p>
           <p class="text-body-1 text-center text-md-left mb-6">
-            Na experiência como Tech Lead, conduzi grande parte das atividades típicas de PO junto ao time de desenvolvimento: estruturação e priorização do backlog, planejamento de sprints e ritos alinhados a Scrum (e outras práticas ágeis quando faziam sentido), além de alinhar stakeholders com a capacidade de entrega.
+            {{ t('home.sobre.p2') }}
           </p>
           <p class="text-body-1 text-center text-md-left mb-6">
-            Minha atuação conecta discovery orientada a evidência, priorização com trade-offs e acompanhamento de impacto pós-entrega.
+            {{ t('home.sobre.p3') }}
           </p>
           <p class="text-body-1 text-center text-md-left mb-0">
-            Busco oportunidades onde decisões de produto aceleram crescimento, reduzem fricção e melhoram a experiência do usuário.
+            {{ t('home.sobre.p4') }}
           </p>
 
           <div class="marcos-grid">
@@ -208,29 +208,29 @@
 
     <!-- Contact Section -->
     <v-container id="contato" class="py-16">
-      <h2 class="text-h3 text-center mb-12">Vamos conversar?</h2>
+      <h2 class="text-h3 text-center mb-12">{{ t('home.contato.title') }}</h2>
       <v-row justify="center" class="mb-8">
         <v-col cols="12" md="8">
           <p class="text-body-1 text-center mb-0">
-            Se você procura um PO que estrutura decisões com evidência, transforma UX em requisitos e acompanha impacto, vamos conversar.
+            {{ t('home.contato.intro') }}
           </p>
         </v-col>
       </v-row>
       <v-row justify="center">
         <v-col cols="12" md="6" class="d-flex justify-center">
           <!-- Ícones das Redes Sociais e WhatsApp -->
-          <v-btn icon size="large" href="https://github.com/Mhfmtech" target="_blank" class="contact-icon-btn" aria-label="GitHub">
+          <v-btn icon size="large" href="https://github.com/Mhfmtech" target="_blank" class="contact-icon-btn" :aria-label="t('home.a11y.github')">
             <v-icon>mdi-github</v-icon>
           </v-btn>
           <v-btn icon size="large" href="https://www.linkedin.com/in/mauro-henrique-faria-moreira-7b57bb15a/"
-            target="_blank" class="contact-icon-btn" aria-label="LinkedIn">
+            target="_blank" class="contact-icon-btn" :aria-label="t('home.a11y.linkedin')">
             <v-icon>mdi-linkedin</v-icon>
           </v-btn>
           <v-btn icon size="large" href="https://www.instagram.com/mauro__henrique/" target="_blank"
-            class="contact-icon-btn" aria-label="Instagram">
+            class="contact-icon-btn" :aria-label="t('home.a11y.instagram')">
             <v-icon>mdi-instagram</v-icon>
           </v-btn>
-          <v-btn icon size="large" href="https://wa.me/5512982833941" target="_blank" class="contact-icon-btn" aria-label="WhatsApp">
+          <v-btn icon size="large" href="https://wa.me/5512982833941" target="_blank" class="contact-icon-btn" :aria-label="t('home.a11y.whatsapp')">
             <v-icon>mdi-whatsapp</v-icon>
           </v-btn>
         </v-col>
@@ -240,72 +240,53 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import Banner from '~/components/Banner.vue'
 import CasesDeProduto from '~/components/CasesDeProduto.vue'
 import mauroImage from '~/assets/mauro.jpg'
 
-const processoEtapas = [
-  {
-    icon: 'mdi-compass-outline',
-    titulo: 'Discovery e alinhamento',
-    texto: 'Objetivo do produto, stakeholders, restrições e “o que precisa ser verdade” para a iniciativa avançar.'
-  },
-  {
-    icon: 'mdi-clipboard-search-outline',
-    titulo: 'Diagnóstico com evidências',
-    texto: 'Pesquisa, analytics e feedback para entender o problema real (e não só a superfície percebida).'
-  },
-  {
-    icon: 'mdi-flask-outline',
-    titulo: 'Hipótese + métrica',
-    texto: 'Defino o que testar, como medir sucesso e quais sinais indicam aprendizado ou necessidade de pivot.'
-  },
-  {
-    icon: 'mdi-swap-vertical',
-    titulo: 'Priorização e trade-offs',
-    texto: 'Organizo backlog considerando impacto, esforço, dependências e capacidade real do time.'
-  },
-  {
-    icon: 'mdi-rocket-launch-outline',
-    titulo: 'Entrega e aprendizado',
-    texto: 'Acompanho pós-release, valido resultados e transformo evidência em decisão para a próxima iteração.'
-  }
+const { t } = useI18n()
+const { resolvedTm } = useResolvedTm()
+
+useHead(() => ({
+  title: t('meta.pageTitleHome'),
+}))
+
+const processoIcons = [
+  'mdi-compass-outline',
+  'mdi-clipboard-search-outline',
+  'mdi-flask-outline',
+  'mdi-swap-vertical',
+  'mdi-rocket-launch-outline',
 ]
 
-const impactoCards = [
-  {
-    titulo: 'Decisão com causa',
-    texto: 'Reduzo “achismo” com hipóteses claras, critérios de sucesso e acompanhamento de métricas.'
-  },
-  {
-    titulo: 'Produto com previsibilidade',
-    texto: 'Priorização e ritos de alinhamento que aumentam a cadência e diminuem retrabalho.'
-  },
-  {
-    titulo: 'Melhoria contínua',
-    texto: 'Aprendizado pós-entrega: ajuste de escopo, correção de fricções e evolução do valor para o usuário.'
-  }
-]
+const processoEtapas = computed(() => {
+  const etapas = resolvedTm('home.processo.etapas')
+  if (!Array.isArray(etapas)) return []
+  return etapas.map((e, i) => ({
+    titulo: e.titulo,
+    texto: e.texto,
+    icon: processoIcons[i] ?? 'mdi-circle-outline',
+  }))
+})
 
-const diferencialBullets = [
-  'Transformo UX em requisitos objetivos (com critérios de sucesso).',
-  'Antecipação técnica para evitar gargalos antes de investir tempo do time.',
-  'Fecho o ciclo: validação → decisão → execução → métrica.',
-  'Tech Lead com forte viés de PO: backlog negociado, Scrum e ritos usados para dar previsibilidade ao time.'
-]
+const impactoCards = computed(() => {
+  const cards = resolvedTm('home.impacto.cards')
+  return Array.isArray(cards) ? cards : []
+})
 
-const marcos = [
-  { titulo: 'Discovery orientado a evidência', texto: 'Estruturo perguntas e hipóteses para orientar o que construir.' },
-  { titulo: 'Priorização com trade-offs', texto: 'Backlog alinhado a impacto, capacidade e dependências.' },
-  { titulo: 'Impacto pós-entrega', texto: 'Acompanhe resultado e aprendizado para iterar com segurança.' }
-]
+const diferencialBullets = computed(() => {
+  const bullets = resolvedTm('home.diferencial.bullets')
+  return Array.isArray(bullets) ? bullets : []
+})
+
+const marcos = computed(() => {
+  const m = resolvedTm('home.sobre.marcos')
+  return Array.isArray(m) ? m : []
+})
 
 // Mantido apenas para evitar erros de renderização no bloco antigo de “Sobre” (agora oculto).
 const skillCategories = []
-
-definePageMeta({
-  title: 'Product Owner | Cases e Processo'
-})
 </script>
 
 <style scoped>
