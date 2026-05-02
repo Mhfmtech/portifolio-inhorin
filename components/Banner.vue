@@ -32,11 +32,11 @@
         </li>
       </ul>
 
-      <div class="d-flex justify-center gap-4 flex-wrap">
+      <div class="hero-cta d-flex justify-center gap-4 flex-wrap">
         <v-btn
           color="primary"
           size="large"
-          class="mr-4 elegant-btn"
+          class="elegant-btn cta-btn"
           href="#cases"
         >
           {{ t('banner.ctaCases') }}
@@ -45,7 +45,7 @@
           variant="outlined"
           color="white"
           size="large"
-          class="elegant-btn"
+          class="elegant-btn cta-btn"
           href="#contato"
         >
           {{ t('banner.ctaContact') }}
@@ -392,15 +392,36 @@ onUnmounted(() => {
 }
 
 @media (max-width: 600px) {
+  .content {
+    padding: 1.5rem 1.25rem 2.25rem;
+  }
+
   .hero-highlights {
     flex-direction: column;
     align-items: stretch;
     gap: 0.65rem;
     padding: 1rem 1.1rem;
+    margin-bottom: 1.25rem;
   }
 
   .hero-highlight {
     max-width: none;
+  }
+
+  .hero-cta {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    padding-inline: 0;
+  }
+
+  .hero-cta .cta-btn {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0 !important;
   }
 }
 
