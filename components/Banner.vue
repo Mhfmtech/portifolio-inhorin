@@ -425,6 +425,37 @@ onUnmounted(() => {
   }
 }
 
+@media (min-width: 601px) {
+  .hero-highlights {
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    width: 100%;
+    max-width: min(52rem, 100%);
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    margin-inline: auto;
+    padding-inline: 0.75rem;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-cta .cta-btn {
+    flex: 0 1 auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-cta {
+    flex-wrap: nowrap;
+    gap: 1.35rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
 .elegant-btn {
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
