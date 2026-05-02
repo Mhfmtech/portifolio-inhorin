@@ -9,7 +9,9 @@
   "lang": {
     "pt": "PT",
     "en": "EN",
-    "switchTo": "Mudar idioma"
+    "switchTo": "Mudar idioma",
+    "ariaPt": "Mudar o site para português (Brasil)",
+    "ariaEn": "Mudar o site para inglês (Estados Unidos)"
   },
   "meta": {
     "title": "Mauro Henrique - Product Owner (PO) | UX + Front-end",

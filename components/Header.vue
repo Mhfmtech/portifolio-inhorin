@@ -10,24 +10,15 @@
           <img :src="logo2" alt="Logo" class="header-logo" loading="lazy" />
         </NuxtLink>
       </div>
-      
-      <!-- Menu Desktop -->
-      <nav class="nav-menu d-none d-md-flex align-center" aria-label="Principal">
-        <v-btn
-          v-for="item in menuItems"
-          :key="item.to"
-          variant="text"
-          color="white"
-          @click="scrollToSection(item.to)"
-        >
-          {{ item.text }}
-        </v-btn>
 
-        <div class="lang-switch d-flex align-center ml-2" role="group" :aria-label="t('lang.switchTo')">
+      <!-- Idioma visível no mobile (barra), ao lado do menu -->
+      <div class="header-toolbar-mobile d-flex d-md-none align-center">
+        <div class="lang-switch lang-switch--mobile" role="group" :aria-label="t('lang.switchTo')">
           <NuxtLink
             :to="switchLocalePath('pt-BR')"
-            class="lang-link lang-link--with-flag"
+            class="lang-link lang-link--with-flag lang-link--mobile-bar"
             :class="{ active: locale === 'pt-BR' }"
+            :aria-label="t('lang.ariaPt')"
           >
             <span class="lang-flag" aria-hidden="true">
               <svg class="flag-svg flag-svg--br" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
@@ -40,13 +31,14 @@
                 />
               </svg>
             </span>
-            {{ t('lang.pt') }}
+            <span class="lang-link-text">{{ t('lang.pt') }}</span>
           </NuxtLink>
           <span class="lang-sep" aria-hidden="true">|</span>
           <NuxtLink
             :to="switchLocalePath('en-US')"
-            class="lang-link lang-link--with-flag"
+            class="lang-link lang-link--with-flag lang-link--mobile-bar"
             :class="{ active: locale === 'en-US' }"
+            :aria-label="t('lang.ariaEn')"
           >
             <span class="lang-flag" aria-hidden="true">
               <svg class="flag-svg flag-svg--us" viewBox="0 0 19 10" xmlns="http://www.w3.org/2000/svg">
@@ -73,17 +65,84 @@
                 </g>
               </svg>
             </span>
-            {{ t('lang.en') }}
+            <span class="lang-link-text">{{ t('lang.en') }}</span>
+          </NuxtLink>
+        </div>
+        <v-app-bar-nav-icon
+          color="white"
+          class="header-menu-icon"
+          @click.stop="drawer = !drawer"
+        />
+      </div>
+      
+      <!-- Menu Desktop -->
+      <nav class="nav-menu d-none d-md-flex align-center" aria-label="Principal">
+        <v-btn
+          v-for="item in menuItems"
+          :key="item.to"
+          variant="text"
+          color="white"
+          @click="scrollToSection(item.to)"
+        >
+          {{ item.text }}
+        </v-btn>
+
+        <div class="lang-switch d-flex align-center ml-2" role="group" :aria-label="t('lang.switchTo')">
+          <NuxtLink
+            :to="switchLocalePath('pt-BR')"
+            class="lang-link lang-link--with-flag"
+            :class="{ active: locale === 'pt-BR' }"
+            :aria-label="t('lang.ariaPt')"
+          >
+            <span class="lang-flag" aria-hidden="true">
+              <svg class="flag-svg flag-svg--br" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">
+                <rect width="20" height="14" fill="#009b3a" />
+                <path d="M10 1.8 17.2 7 10 12.2 2.8 7z" fill="#ffdf00" />
+                <circle cx="10" cy="7" r="2.9" fill="#002776" />
+                <path
+                  d="M10 5.1c.9.5 1.6 1.4 1.8 2.4-.4-.3-.9-.5-1.4-.5s-1 .2-1.4.5c.2-1 1-1.9 1.8-2.4z"
+                  fill="#fff"
+                />
+              </svg>
+            </span>
+            <span class="lang-link-text">{{ t('lang.pt') }}</span>
+          </NuxtLink>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <NuxtLink
+            :to="switchLocalePath('en-US')"
+            class="lang-link lang-link--with-flag"
+            :class="{ active: locale === 'en-US' }"
+            :aria-label="t('lang.ariaEn')"
+          >
+            <span class="lang-flag" aria-hidden="true">
+              <svg class="flag-svg flag-svg--us" viewBox="0 0 19 10" xmlns="http://www.w3.org/2000/svg">
+                <rect width="19" height="10" fill="#b22234" />
+                <path
+                  fill="#fff"
+                  d="M0 1.43h19v.71H0zm0 1.43h19v.71H0zm0 1.43h19v.71H0zm0 1.43h19v.71H0zm0 1.43h19v.71H0z"
+                />
+                <rect width="7.6" height="5" fill="#3c3b6e" />
+                <g fill="#fff">
+                  <circle cx="1.1" cy="0.9" r="0.35" />
+                  <circle cx="2.5" cy="0.9" r="0.35" />
+                  <circle cx="3.9" cy="0.9" r="0.35" />
+                  <circle cx="5.3" cy="0.9" r="0.35" />
+                  <circle cx="6.7" cy="0.9" r="0.35" />
+                  <circle cx="1.8" cy="1.8" r="0.35" />
+                  <circle cx="3.2" cy="1.8" r="0.35" />
+                  <circle cx="4.6" cy="1.8" r="0.35" />
+                  <circle cx="6" cy="1.8" r="0.35" />
+                  <circle cx="2.5" cy="2.7" r="0.35" />
+                  <circle cx="3.9" cy="2.7" r="0.35" />
+                  <circle cx="5.3" cy="2.7" r="0.35" />
+                  <circle cx="4.6" cy="3.6" r="0.35" />
+                </g>
+              </svg>
+            </span>
+            <span class="lang-link-text">{{ t('lang.en') }}</span>
           </NuxtLink>
         </div>
       </nav>
-
-      <!-- Botão Menu Mobile -->
-      <v-app-bar-nav-icon
-        class="d-md-none"
-        color="white"
-        @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
     </div>
   </v-app-bar>
 
@@ -207,6 +266,32 @@ const scrollToSection = async (sectionId) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
+}
+
+.header-toolbar-mobile {
+  gap: 0.1rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.lang-switch--mobile {
+  border-left: none;
+  padding-left: 0;
+  margin-left: 0;
+  gap: 0.15rem;
+}
+
+.lang-link--mobile-bar {
+  min-height: 44px;
+  min-width: 40px;
+  padding: 0.35rem 0.4rem;
+  font-size: 0.78rem;
+  justify-content: center;
+}
+
+.lang-link--mobile-bar .flag-svg {
+  width: 19px;
 }
 
 .logo span {
@@ -371,6 +456,17 @@ const scrollToSection = async (sectionId) => {
   
   .header-content {
     padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .lang-link--mobile-bar .lang-link-text {
+    display: none;
+  }
+
+  .lang-link--mobile-bar {
+    min-width: 44px;
+    padding: 0.35rem;
   }
 }
 </style>
